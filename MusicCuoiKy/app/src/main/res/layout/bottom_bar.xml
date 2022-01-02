@@ -8,7 +8,7 @@
     android:focusable="true">
 
     <ImageView
-        android:id="@+id/image_Song"
+        android:id="@+id/imvSong"
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="center"
@@ -23,7 +23,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_Song"
+            android:id="@+id/txtSong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
@@ -31,7 +31,7 @@
             android:textSize="@dimen/_15ssp" />
 
         <TextView
-            android:id="@+id/tv_Artist"
+            android:id="@+id/txtArtist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
@@ -44,7 +44,7 @@
         android:gravity="center">
 
         <ImageButton
-            android:id="@+id/bt_Previous"
+            android:id="@+id/btnPrevious"
             android:layout_width="@dimen/_15sdp"
             android:layout_height="@dimen/_18sdp"
             android:background="@null"
@@ -52,7 +52,7 @@
             android:src="@drawable/ic_previous_white" />
 
         <ImageButton
-            android:id="@+id/bt_Play"
+            android:id="@+id/btnPlay"
             android:layout_width="@dimen/_15sdp"
             android:layout_height="@dimen/_18sdp"
             android:layout_marginLeft="@dimen/_10sdp"
@@ -62,7 +62,7 @@
             android:src="@drawable/ic_play_white" />
 
         <ImageButton
-            android:id="@+id/bt_Next"
+            android:id="@+id/btnNext"
             android:layout_width="@dimen/_15sdp"
             android:layout_height="@dimen/_18sdp"
             android:background="@null"

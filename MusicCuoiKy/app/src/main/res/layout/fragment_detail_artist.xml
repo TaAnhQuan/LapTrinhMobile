@@ -1,44 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.FragmenDetailArtist">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.FragmentDetailArtist">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
 
             <ImageView
-                android:id="@+id/imgArtist"
+                android:id="@+id/imvArtist"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/_200sdp"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/ic_music_default" />
 
             <TextView
-                android:id="@+id/txArtist"
+                android:id="@+id/txtArtist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/imgArtist"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_alignBottom="@+id/imvArtist"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:singleLine="true"
                 android:text="@string/artist"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="@dimen/_14ssp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvAlbumForArtist"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/imgArtist"
-                android:layout_marginTop="0dp" />
+                android:layout_below="@+id/imvArtist"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvSongForArtist"
@@ -50,4 +51,4 @@
 
     </androidx.core.widget.NestedScrollView>
 
-</LinearLayout>
+</FrameLayout>

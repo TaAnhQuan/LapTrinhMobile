@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/imvAlbum"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_90sdp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/ic_music_default" />
 
@@ -19,8 +19,8 @@
         android:layout_centerHorizontal="true"
         android:singleLine="true"
         android:text="@string/song"
-        android:textColor="#000"
-        android:textSize="14sp" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/_14ssp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="@string/artist"
-            android:textColor="#000" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txtCount"

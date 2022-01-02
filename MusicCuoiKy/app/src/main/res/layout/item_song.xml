@@ -3,12 +3,12 @@
     android:id="@+id/relativeLayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_margin="@dimen/_5sdp">
 
     <LinearLayout
         android:id="@+id/lnCheck"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
         android:gravity="center"
         android:visibility="gone">
 
@@ -21,14 +21,14 @@
 
     <ImageView
         android:id="@+id/imvSong"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
         android:layout_toEndOf="@+id/lnCheck"
         android:background="@drawable/ic_music_default" />
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/_60sdp"
         android:layout_marginStart="10sp"
         android:layout_toEndOf="@+id/imvSong"
         android:gravity="center"
@@ -40,8 +40,8 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="@string/song"
-            android:textColor="#000"
-            android:textSize="14sp" />
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp" />
 
         <TextView
             android:id="@+id/txtArtist"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:text="@string/artist"
-            android:textColor="#000" />
+            android:textColor="@color/black" />
     </LinearLayout>
 
 </RelativeLayout>

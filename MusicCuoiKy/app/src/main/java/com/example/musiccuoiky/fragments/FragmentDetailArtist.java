@@ -12,10 +12,10 @@ import com.example.musiccuoiky.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmenDetailArtist#newInstance} factory method to
+ * Use the {@link FragmentDetailArtist#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmenDetailArtist extends Fragment {
+public class FragmentDetailArtist extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class FragmenDetailArtist extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragmenDetailArtist() {
+    public FragmentDetailArtist() {
         // Required empty public constructor
     }
 
@@ -39,8 +39,8 @@ public class FragmenDetailArtist extends Fragment {
      * @return A new instance of fragment FragmenDetailArtist.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmenDetailArtist newInstance(String param1, String param2) {
-        FragmenDetailArtist fragment = new FragmenDetailArtist();
+    public static FragmentDetailArtist newInstance(String param1, String param2) {
+        FragmentDetailArtist fragment = new FragmentDetailArtist();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
