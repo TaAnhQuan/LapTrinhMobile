@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:orientation="vertical"
     android:gravity="center_horizontal"
-    >
+    android:orientation="vertical">
+
     <ImageView
         android:id="@+id/imvSong"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/ic_music_default"
-        android:layout_centerHorizontal="true"
-        />
+        android:background="@drawable/ic_music_default" />
+
     <TextView
         android:id="@+id/txtSong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tên bài hát"
-        android:layout_below="@+id/imvSong"
         android:layout_marginTop="20dp"
-        android:textSize="15sp"
-        android:layout_centerHorizontal="true"
         android:singleLine="true"
-        />
+        android:text="@string/song"
+        android:textSize="15sp" />
+
     <TextView
         android:id="@+id/txtArtist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tên nghệ sĩ"
-        android:layout_below="@+id/txtSong"
-        android:layout_centerHorizontal="true"
         android:singleLine="true"
-        />
+        android:text="@string/artist" />
 </LinearLayout>
