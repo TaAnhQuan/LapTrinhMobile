@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentDetailPlaylist">
+    tools:context=".fragments.FragmentDetailPlaylist">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -14,42 +14,38 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imgPlaylist"
+                android:id="@+id/imvPlaylist"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@drawable/ic_music_default"
-                />
+                android:background="@drawable/ic_music_default" />
 
             <TextView
                 android:id="@+id/txtPlaylist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_above="@+id/txtPlaylistArtist"
+                android:layout_marginLeft="10dp"
+                android:singleLine="true"
                 android:text="Tên playlist"
                 android:textColor="@color/white"
-                android:layout_marginLeft="10dp"
-                android:layout_above="@+id/txtPlaylistArtist"
-                android:singleLine="true"
-                android:textSize="14sp"
-                />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/txtPlaylistArtist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tên nghệ sĩ"
-                android:layout_marginBottom="15dp"
-                android:layout_alignBottom="@+id/imgPlaylist"
+                android:layout_alignBottom="@+id/imvPlaylist"
                 android:layout_marginLeft="10dp"
+                android:layout_marginBottom="15dp"
+                android:text="Tên nghệ sĩ"
                 android:textColor="@color/white"
-                android:textSize="14sp"
-                />
+                android:textSize="14sp" />
 
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/imgPlaylist"
-                />
+                android:layout_below="@+id/imvPlaylist" />
 
         </RelativeLayout>
 

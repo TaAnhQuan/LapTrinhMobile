@@ -1,4 +1,4 @@
-package com.example.musiccuoiky;
+package com.example.musiccuoiky.fragments;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.musiccuoiky.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentDetailAlbum#newInstance} factory method to
+ * Use the {@link FragmentDetailPlaylist#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentDetailAlbum extends Fragment {
+public class FragmentDetailPlaylist extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class FragmentDetailAlbum extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragmentDetailAlbum() {
+    public FragmentDetailPlaylist() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class FragmentDetailAlbum extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentDetailAlbum.
+     * @return A new instance of fragment FragmentDetailPlaylist.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentDetailAlbum newInstance(String param1, String param2) {
-        FragmentDetailAlbum fragment = new FragmentDetailAlbum();
+    public static FragmentDetailPlaylist newInstance(String param1, String param2) {
+        FragmentDetailPlaylist fragment = new FragmentDetailPlaylist();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class FragmentDetailAlbum extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detail_album, container, false);
+        return inflater.inflate(R.layout.fragment_detail_playlist, container, false);
     }
 }
