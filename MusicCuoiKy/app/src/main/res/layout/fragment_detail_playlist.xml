@@ -11,7 +11,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/imvPlaylist"
@@ -24,9 +24,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/txtPlaylistArtist"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:singleLine="true"
-                android:text="Tên playlist"
+                android:text="@string/playlist"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -35,9 +35,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/imvPlaylist"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginBottom="15dp"
-                android:text="Tên nghệ sĩ"
+                android:text="@string/artist"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 

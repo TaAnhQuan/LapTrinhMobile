@@ -11,7 +11,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/imgAlbum"
@@ -25,9 +25,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/tv_Artist"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:singleLine="true"
-                android:text="Tên bài hát"
+                android:text="@string/song"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
@@ -36,10 +36,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/imgAlbum"
-                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginBottom="15dp"
                 android:singleLine="true"
-                android:text="Tên nghệ sĩ"
+                android:text="@string/artist"
                 android:textColor="@color/white" />
 
 
