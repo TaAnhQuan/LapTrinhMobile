@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmenDetailArtist">
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           >
+
+
+           <ImageView
+               android:id="@+id/imgArtist"
+               android:layout_width="match_parent"
+               android:layout_height="200dp"
+               android:layout_centerHorizontal="true"
+               android:background="@drawable/ic_music_default" />
+
+           <TextView
+               android:id="@+id/txArtist"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignBottom="@+id/imgArtist"
+               android:layout_marginBottom="16dp"
+               android:layout_marginLeft="16dp"
+               android:singleLine="true"
+               android:text="Tên nghệ sĩ"
+               android:textColor="@color/white"
+               android:textSize="14dp"
+               />
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/rcvAlbumForArtist"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_below="@+id/imgArtist"
+               android:layout_marginTop="0dp" />
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/rcvSongForArtist"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_below="@id/rcvAlbumForArtist"
+               />
+
+       </RelativeLayout>
+
+   </ScrollView>
+
+</LinearLayout>
