@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/relativeLayout"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="5dp"
+    >
+    <LinearLayout
+        android:id="@+id/lnCheck"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:visibility="gone"
+        >
+        <CheckBox
+            android:id="@+id/rdbCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imvSong"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ic_music_default"
+        android:layout_toRightOf="@+id/lnCheck"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/imvSong"
+        android:gravity="center"
+        android:layout_marginLeft="10sp"
+        >
+        <TextView
+            android:id="@+id/txtSong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên bài hát"
+            android:textSize="14sp"
+            android:singleLine="true"
+            android:textColor="#000"
+            />
+        <TextView
+            android:id="@+id/txtArtist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tên nghệ sĩ"
+            android:singleLine="true"
+            android:textColor="#000"
+            />
+    </LinearLayout>
+
+</RelativeLayout>
