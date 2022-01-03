@@ -8,10 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.musiccuoiky.CreatePlaylistDialog;
 import com.example.musiccuoiky.R;
 import com.example.musiccuoiky.activities.MainActivity;
 import com.example.musiccuoiky.adapters.AdapterPlaylist;
@@ -33,7 +35,7 @@ public class FragmentPlaylist extends Fragment implements View.OnClickListener{
         adapterPlaylist = new AdapterPlaylist(getContext(),list);
         rcvPlaylist.setAdapter(adapterPlaylist);
         rcvPlaylist.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-        btnTaoPlaylist = view.findViewById(R.id.btnTaoPlaylist);
+        btnTaoPlaylist = view.findViewById(R.id.btnCreatePlayList);
         btnTaoPlaylist.setOnClickListener(this);
         return view;
     }
