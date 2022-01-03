@@ -2,23 +2,21 @@ package com.example.musiccuoiky;
 
 import static com.example.musiccuoiky.MusicPlayer.updatePlaylist;
 
-import static com.example.musiccuoiky.widgets.MusicPlayer.updatePlaylist;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
+
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.example.musiccuoiky.widgets.MusicPlayer;
 
 
 public class CreatePlaylistDialog extends DialogFragment {
     public static CreatePlaylistDialog instance;
 
-    public CreatePlaylistDialog(){
+    public CreatePlaylistDialog() {
         instance = this;
     }
 
@@ -27,7 +25,7 @@ public class CreatePlaylistDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         return new MaterialDialog.Builder(instance.getContext())
                 .title("Tạo danh sách")
-                .inputRange(1,50)
+                .inputRange(1, 50)
                 .positiveText("Tạo")
                 .negativeText("Thoát")
                 .input("", "Danh sách phát...", new MaterialDialog.InputCallback() {
