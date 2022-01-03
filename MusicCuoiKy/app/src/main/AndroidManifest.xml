@@ -16,6 +16,7 @@
         android:theme="@style/Theme.MusicCuoiKy">
         <activity
             android:name=".activities.MainActivity"
+            android:launchMode="singleTop"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +24,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activities.PlaySongActivity"
+            android:launchMode="singleTop">
+
+        </activity>
+
+        <service
+            android:name=".service.MusicService">
+        </service>
+
+        <receiver android:name=".SwitchButtonListener"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.musiccuoiky.previous" />
+                <action android:name="com.example.musiccuoiky.next" />
+                <action android:name="com.example.musiccuoiky.play" />
+                <action android:name="com.example.musiccuoiky.start" />
+                <action android:name="com.example.musiccuoiky.exit" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
