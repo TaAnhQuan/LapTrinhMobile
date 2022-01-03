@@ -8,6 +8,7 @@ import android.app.DialogFragment;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 
 
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -36,6 +37,10 @@ public class CreatePlaylistDialog extends DialogFragment {
                         updatePlaylist();
                     }
                 }).show();
+    }
+
+    public void show(FragmentManager fragmentManager, String create_playlist) {
+
     }
 }
 
