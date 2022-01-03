@@ -1,6 +1,7 @@
 package com.example.musiccuoiky.fragments;
 
 import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ public class FragmentArtist extends Fragment {
         list = MainActivity.listArtist;
         adapterArtist = new AdapterArtist(getContext(),list);
         rcvArtist.setAdapter(adapterArtist);
-        rcvArtist.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL,false));
+        rcvArtist.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         return view;
     }
 }
