@@ -21,11 +21,10 @@ import com.example.musiccuoiky.adapters.AdapterPlaylist.ViewHolder;
 import java.util.List;
 
 public class AdapterPlaylist extends RecyclerView.Adapter<AdapterPlaylist.ViewHolder>{
-    private List<Playlist> list;
-    private Context context;
-    //Context context;
-    //LayoutInflater inflater;
-    //private int pos = 0;
+    List<Playlist> list;
+    Context context;
+    LayoutInflater inflater;
+    int pos = 0;
     public static AdapterPlaylist instance;
     public AdapterPlaylist(Context context, List<Playlist> list) {
         instance = this;

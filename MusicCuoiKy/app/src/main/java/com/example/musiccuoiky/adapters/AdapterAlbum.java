@@ -18,11 +18,10 @@ import com.example.musiccuoiky.models.Album;
 import java.util.List;
 
 public class AdapterAlbum extends RecyclerView.Adapter<AdapterAlbum.ViewHolder>{
-    private List<Album> list;
-    private Context context;
-    //public Context context;
-    //LayoutInflater inflater;
-    //int pos= 0;
+    List<Album> list;
+    Context context;
+    LayoutInflater inflater;
+    int pos= 0;
     public static AdapterAlbum instance;
 
     public AdapterAlbum(Context context, List<Album> list) {

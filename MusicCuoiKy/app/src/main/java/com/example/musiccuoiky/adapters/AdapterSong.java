@@ -22,12 +22,10 @@ import com.example.musiccuoiky.service.MusicService;
 import java.util.List;
 
 public class    AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder>{
-    //public static List<Song> list;
-    private List<Song> list;
-    private Context context;
-    //Context context;
-    //LayoutInflater inflater;
-    private static int pos = FragmentSong.pos;
+    public static List<Song> list;
+    Context context;
+    LayoutInflater inflater;
+    public static int pos = FragmentSong.pos;
     public static AdapterSong instance;
 
     public AdapterSong(Context context, List<Song> list) {
