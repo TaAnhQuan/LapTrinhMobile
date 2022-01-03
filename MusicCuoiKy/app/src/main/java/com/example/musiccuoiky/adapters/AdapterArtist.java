@@ -45,8 +45,8 @@ public class AdapterArtist extends RecyclerView.Adapter<AdapterArtist.ViewHolder
     public void onBindViewHolder(final ViewHolder holder, final int position) {
         holder.imvArtist.setImageDrawable(Drawable.createFromPath(list.get(position).getAlbum_art()));
         holder.txtArtist.setText(list.get(position).getArtist());
-        holder.txtNumOfAlbums.setText(list.get(position).getNum_of_albums());
-        holder.txtNumOfSongs.setText(list.get(position).getNum_of_songs());
+        holder.txtNumOfAlbums.setText(list.get(position).getNumOfAlbums());
+        holder.txtNumOfSongs.setText(list.get(position).getNumOfSongs());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

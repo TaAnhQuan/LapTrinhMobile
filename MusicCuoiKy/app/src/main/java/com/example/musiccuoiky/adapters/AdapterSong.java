@@ -1,5 +1,7 @@
 package com.example.musiccuoiky.adapters;
 
+import static com.example.musiccuoiky.service.MusicService.setPos;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,10 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.musiccuoiky.R;
 import com.example.musiccuoiky.fragments.FragmentSong;
 import com.example.musiccuoiky.models.Song;
+import com.example.musiccuoiky.service.MusicService;
 
 import java.util.List;
 
-public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder>{
+public class    AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder>{
     //public static List<Song> list;
     private List<Song> list;
     private Context context;
@@ -54,7 +57,7 @@ public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder>{
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.imvSong.setImageDrawable(Drawable.createFromPath(list.get(position).getAlbum_art()));
+        holder.imvSong.setImageDrawable(Drawable.createFromPath(list.get(position).getAlbumArt()));
         holder.txtSong.setText(list.get(position).getName());
         holder.txtArtist.setText(list.get(position).getArtist());
         if (list.get(position).getId().compareTo(MusicService.list.get(MusicService.pos).getId())==0){
@@ -72,7 +75,7 @@ public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder>{
                 setPos(position);
                 MusicService.list = list;
                 Intent intent = new Intent(context, MusicService.class);
-                intent.setAction(Define.actStart);
+                intent.setAction("com.musiccuoiky.music.start");
                 context.startService(intent);
             }
         });
