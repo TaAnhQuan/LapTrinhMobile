@@ -1,5 +1,7 @@
 package com.example.musiccuoiky.adapters;
 
+import static com.example.musiccuoiky.MusicPlayer.updatePlaylist;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.musiccuoiky.MusicPlayer;
 import com.example.musiccuoiky.R;
 import com.example.musiccuoiky.activities.MainActivity;
 import com.example.musiccuoiky.models.Playlist;
