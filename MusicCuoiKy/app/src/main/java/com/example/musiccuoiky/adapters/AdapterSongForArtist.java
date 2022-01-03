@@ -56,21 +56,21 @@ public class AdapterSongForArtist extends RecyclerView.Adapter<AdapterSongForArt
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.imageSong.setImageDrawable(Drawable.createFromPath(list
+        holder.imvSong.setImageDrawable(Drawable.createFromPath(list
                 .get(position)
                 .getAlbumArt()));
-        holder.tvSong.setText(list
+        holder.txtSong.setText(list
                 .get(position)
                 .getName());
-        holder.tvArtist.setText(list
+        holder.txtArtist.setText(list
                 .get(position)
                 .getArtist());
         if (list.get(position).getId().compareTo(MusicService.list.get(MusicService.pos).getId()) == 0) {
-            holder.tvSong.setTextColor(Color.MAGENTA);
-            holder.tvArtist.setTextColor(Color.MAGENTA);
+            holder.txtSong.setTextColor(Color.MAGENTA);
+            holder.txtArtist.setTextColor(Color.MAGENTA);
         } else {
-            holder.tvSong.setTextColor(Color.BLACK);
-            holder.tvArtist.setTextColor(Color.BLACK);
+            holder.txtSong.setTextColor(Color.BLACK);
+            holder.txtArtist.setTextColor(Color.BLACK);
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,15 +92,15 @@ public class AdapterSongForArtist extends RecyclerView.Adapter<AdapterSongForArt
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageSong;
-        TextView tvSong;
-        TextView tvArtist;
+        ImageView imvSong;
+        TextView txtSong;
+        TextView txtArtist;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            imageSong= itemView.findViewById(R.id.imvSong);
-            tvSong = itemView.findViewById(R.id.txtSong);
-            tvArtist = itemView.findViewById(R.id.txtArtist);
+            imvSong= itemView.findViewById(R.id.imvSong);
+            txtSong = itemView.findViewById(R.id.txtSong);
+            txtArtist = itemView.findViewById(R.id.txtArtist);
         }
     }
 }
