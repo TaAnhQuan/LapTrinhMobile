@@ -14,9 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.musiccuoiky.R;
+import com.example.musiccuoiky.activities.MainActivity;
 import com.example.musiccuoiky.adapters.AdapterSongForAlbum;
 import com.example.musiccuoiky.models.Song;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -69,7 +71,14 @@ public class FragmentDetailAlbum extends Fragment {
     }
 
     private List<Song> getList(String albumID) {
-
-        return null;
+        List<Song> list = new ArrayList<>();
+        for (int i = 0; i< MainActivity.listAlbum.size(); i++){
+            for (int j=0;j<MainActivity.listSong.size();j++)
+                if (MainActivity.listAlbum.get(i).getId().compareTo(albumID)==0
+                        && MainActivity.listAlbum.get(i).getId().compareTo(MainActivity.listSong.get(j).getAlbumId())==0){
+                    list.add(MainActivity.listSong.get(j));
+                }
+        }
+        return list;
     }
 }
