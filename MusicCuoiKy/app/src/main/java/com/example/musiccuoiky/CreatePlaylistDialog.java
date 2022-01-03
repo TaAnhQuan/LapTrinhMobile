@@ -1,10 +1,13 @@
 package com.example.musiccuoiky;
 
+import static com.example.musiccuoiky.MusicPlayer.updatePlaylist;
+
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+
 
 public class CreatePlaylistDialog extends DialogFragment {
     public static CreatePlaylistDialog instance;
