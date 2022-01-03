@@ -16,6 +16,7 @@ import com.example.musiccuoiky.MusicPlayer;
 import com.example.musiccuoiky.R;
 import com.example.musiccuoiky.activities.MainActivity;
 import com.example.musiccuoiky.models.Playlist;
+import com.example.musiccuoiky.adapters.AdapterPlaylist.ViewHolder;
 
 import java.util.List;
 
