@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.musiccuoiky.R;
+import com.example.musiccuoiky.activities.MainActivity;
 import com.example.musiccuoiky.adapters.AdapterAlbum;
 import com.example.musiccuoiky.adapters.AdapterSongForArtist;
 import com.example.musiccuoiky.models.Album;
@@ -105,6 +106,14 @@ public class FragmentDetailArtist extends Fragment {
     }
 
     private List<Song> getListSong(String artistID) {
-        return null;
+        List<Song> list = new ArrayList<>();
+        for (int i = 0; i< MainActivity.listArtist.size(); i++){
+            for (int j=0;j<MainActivity.listSong.size();j++)
+                if (MainActivity.listArtist.get(i).getId().compareTo(artistID)==0
+                        && MainActivity.listArtist.get(i).getId().compareTo(MainActivity.listSong.get(j).getArtistId())==0){
+                    list.add(MainActivity.listSong.get(j));
+                }
+        }
+        return list;
     }
 }
