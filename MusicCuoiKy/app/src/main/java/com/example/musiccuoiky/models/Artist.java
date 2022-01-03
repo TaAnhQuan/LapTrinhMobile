@@ -2,14 +2,14 @@ package com.example.musiccuoiky.models;
 
 
 public class Artist {
-    private String id, album_art, artist, num_of_albums, num_of_songs;
+    private String id, album_art, artist, numOfAlbums, numOfSongs;
 
-    public Artist(String id, String album_art, String artist, String num_of_albums, String num_of_songs) {
+    public Artist(String id, String album_art, String artist, String numOfAlbums, String numOfSongs) {
         this.id = id;
         this.album_art = album_art;
         this.artist = artist;
-        this.num_of_albums = num_of_albums;
-        this.num_of_songs = num_of_songs;
+        this.numOfAlbums = numOfAlbums;
+        this.numOfSongs = numOfSongs;
     }
 
     public String getId() {
@@ -36,19 +36,19 @@ public class Artist {
         this.artist = artist;
     }
 
-    public String getNum_of_albums() {
-        return num_of_albums;
+    public String getNumOfAlbums() {
+        return numOfAlbums;
     }
 
-    public void setNum_of_albums(String num_of_albums) {
-        this.num_of_albums = num_of_albums;
+    public void setNumOfAlbums(String numOfAlbums) {
+        this.numOfAlbums = numOfAlbums;
     }
 
-    public String getNum_of_songs() {
-        return num_of_songs;
+    public String getNumOfSongs() {
+        return numOfSongs;
     }
 
-    public void setNum_of_songs(String num_of_songs) {
-        this.num_of_songs = num_of_songs;
+    public void setNumOfSongs(String numOfSongs) {
+        this.numOfSongs = numOfSongs;
     }
 }

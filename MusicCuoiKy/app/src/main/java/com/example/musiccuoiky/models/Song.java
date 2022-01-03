@@ -2,21 +2,21 @@ package com.example.musiccuoiky.models;
 
 
 public class Song {
-    private String id, name, title, album, album_id,artist,artist_id, path, album_art;
+    private String id, name, title, album, albumId,artist, artistId, path, albumArt;
     private int duration;
     public Song() {
     }
 
-    public Song(String id, String name, String title, String album, String album_id, String artist, String artist_id, String path, String album_art, int duration) {
+    public Song(String id, String name, String title, String album, String albumId, String artist, String artistId, String path, String albumArt, int duration) {
         this.id = id;
         this.name = name;
         this.title = title;
         this.album = album;
-        this.album_id = album_id;
+        this.albumId = albumId;
         this.artist = artist;
-        this.artist_id = artist_id;
+        this.artistId = artistId;
         this.path = path;
-        this.album_art = album_art;
+        this.albumArt = albumArt;
         this.duration = duration;
     }
 
@@ -52,12 +52,12 @@ public class Song {
         this.album = album;
     }
 
-    public String getAlbum_id() {
-        return album_id;
+    public String getAlbumId() {
+        return albumId;
     }
 
-    public void setAlbum_id(String album_id) {
-        this.album_id = album_id;
+    public void setAlbumId(String albumId) {
+        this.albumId = albumId;
     }
 
     public String getArtist() {
@@ -68,12 +68,12 @@ public class Song {
         this.artist = artist;
     }
 
-    public String getArtist_id() {
-        return artist_id;
+    public String getArtistId() {
+        return artistId;
     }
 
-    public void setArtist_id(String artist_id) {
-        this.artist_id = artist_id;
+    public void setArtistId(String artistId) {
+        this.artistId = artistId;
     }
 
     public String getPath() {
@@ -84,12 +84,12 @@ public class Song {
         this.path = path;
     }
 
-    public String getAlbum_art() {
-        return album_art;
+    public String getAlbumArt() {
+        return albumArt;
     }
 
-    public void setAlbum_art(String album_art) {
-        this.album_art = album_art;
+    public void setAlbumArt(String albumArt) {
+        this.albumArt = albumArt;
     }
 
     public int getDuration() {
