@@ -16,8 +16,13 @@ import android.widget.RemoteViews;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.example.musiccuoiky.R;
+import com.example.musiccuoiky.SwitchButtonListener;
+import com.example.musiccuoiky.controls.Control;
+import com.example.musiccuoiky.defines.Define;
 import com.example.musiccuoiky.models.Song;
 
 import java.util.List;
@@ -125,7 +130,7 @@ public class MusicService extends Service {
         contentView.setTextViewText(R.id.txtArtist, list.get(pos).getArtist());
         Uri uri = null;
         try {
-            uri = Uri.parse(list.get(pos).getAlbum_art());
+            uri = Uri.parse(list.get(pos).getAlbumArt());
         } catch (NullPointerException e) {
         }
         if (uri != null)
