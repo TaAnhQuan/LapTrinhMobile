@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.example.musiccuoiky.controls.Control;
 import com.example.musiccuoiky.defines.Define;
 
 
