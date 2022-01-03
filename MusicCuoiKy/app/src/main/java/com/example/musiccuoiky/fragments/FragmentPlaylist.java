@@ -43,10 +43,10 @@ public class FragmentPlaylist extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if (view== btnTaoPlaylist) {
-            makeDialogTaoPlaylist();
+            makeDialogCreatePlaylist();
         }
     }
-    public void makeDialogTaoPlaylist(){
+    public void makeDialogCreatePlaylist(){
         CreatePlaylistDialog playlistDialog = new CreatePlaylistDialog();
         playlistDialog.show(getFragmentManager(),"create playlist");
     }

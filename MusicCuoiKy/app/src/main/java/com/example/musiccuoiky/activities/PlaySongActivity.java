@@ -3,6 +3,8 @@ package com.example.musiccuoiky.activities;
 import static com.example.musiccuoiky.service.MusicService.getPos;
 import static com.example.musiccuoiky.service.MusicService.mediaPlayer;
 import static com.example.musiccuoiky.service.MusicService.setMediaPlayer;
+import static com.example.musiccuoiky.service.MusicService.list;
+
 
 import android.content.Context;
 import android.content.Intent;

@@ -6,16 +6,21 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+
 import com.afollestad.materialdialogs.MaterialDialog;
 
 
 public class CreatePlaylistDialog extends DialogFragment {
     public static CreatePlaylistDialog instance;
+
     public CreatePlaylistDialog(){
         instance = this;
     }
 
-
+    @NonNull
+    @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         return new MaterialDialog.Builder(instance.getContext())
                 .title("Tạo danh sách")
@@ -31,5 +36,5 @@ public class CreatePlaylistDialog extends DialogFragment {
                     }
                 }).show();
     }
-
 }
+
