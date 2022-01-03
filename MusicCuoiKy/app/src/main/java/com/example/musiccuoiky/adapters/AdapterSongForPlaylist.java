@@ -57,9 +57,15 @@ public class AdapterSongForPlaylist extends RecyclerView.Adapter<AdapterSongForP
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.imageSong.setImageDrawable(Drawable.createFromPath(list.get(position).getAlbumArt()));
-        holder.tvSong.setText(list.get(position).getName());
-        holder.tvArtist.setText(list.get(position).getArtist());
+        holder.imageSong.setImageDrawable(Drawable.createFromPath(list
+                .get(position)
+                .getAlbumArt()));
+        holder.tvSong.setText(list
+                .get(position)
+                .getName());
+        holder.tvArtist.setText(list
+                .get(position)
+                .getArtist());
         if (list.get(position).getId().compareTo(MusicService.list.get(MusicService.pos).getId())==0){
             holder.tvSong.setTextColor(Color.MAGENTA);
             holder.tvArtist.setTextColor(Color.MAGENTA);
