@@ -35,14 +35,15 @@ public class AdapterViewPagerPlaySong extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         View itemView = LayoutInflater.from(context).inflate(R.layout.item_playsong,container,false);
-        ImageView image_Song;
-        TextView tv_Song, tv_Artist;
-        image_Song = itemView.findViewById(R.id.imvSong);
-        tv_Song = itemView.findViewById(R.id.txtSong);
-        tv_Artist = itemView.findViewById(R.id.txtArtist);
-        image_Song.setImageDrawable(Drawable.createFromPath(list.get(position).getAlbumArt()));
-        tv_Song.setText(list.get(position).getName());
-        tv_Artist.setText(list.get(position).getArtist());
+        ImageView imvSong;
+        TextView txtSong;
+        TextView txtArtist;
+        imvSong = itemView.findViewById(R.id.imvSong);
+        txtSong = itemView.findViewById(R.id.txtSong);
+        txtArtist = itemView.findViewById(R.id.txtArtist);
+        imvSong.setImageDrawable(Drawable.createFromPath(list.get(position).getAlbumArt()));
+        txtSong.setText(list.get(position).getName());
+        txtArtist.setText(list.get(position).getArtist());
         container.addView(itemView);
         return itemView;
     }
