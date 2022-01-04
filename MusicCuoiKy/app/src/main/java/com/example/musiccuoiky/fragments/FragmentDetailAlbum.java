@@ -25,11 +25,11 @@ import java.util.List;
 public class FragmentDetailAlbum extends Fragment {
 
 
-    private static ImageView imvAlbum;
-    private static TextView txtAlbum, txtArtist;
-    private static RecyclerView rcvSongForAlbum;
-    private static List<Song> list;
-    private static AdapterSongForAlbum adapterSongForAlbum;
+    private ImageView imvAlbum;
+    private TextView txtAlbum, txtArtist;
+    private RecyclerView rcvSongForAlbum;
+    private List<Song> list;
+    private AdapterSongForAlbum adapterSongForAlbum;
 
 
 //    @Override

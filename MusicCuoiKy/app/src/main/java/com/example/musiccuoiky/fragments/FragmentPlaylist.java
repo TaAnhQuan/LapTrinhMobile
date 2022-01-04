@@ -1,11 +1,14 @@
 package com.example.musiccuoiky.fragments;
 
+import android.net.Uri;
 import android.os.Bundle;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 import androidx.annotation.Nullable;
@@ -49,6 +52,11 @@ public class FragmentPlaylist extends Fragment implements View.OnClickListener{
     public void makeDialogCreatePlaylist(){
         CreatePlaylistDialog playlistDialog = new CreatePlaylistDialog();
         playlistDialog.show(getFragmentManager(),"create playlist");
+
+
+        Uri uri = MediaStore.Audio.Playlists.INTERNAL_CONTENT_URI;
+
+
     }
 
 }

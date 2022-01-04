@@ -23,11 +23,11 @@ import java.util.List;
 
 public class FragmentDetailPlaylist extends Fragment {
 
-    private static FragmentDetailPlaylist instance;
+    private FragmentDetailPlaylist instance;
     private TextView txtPlaylist, txtCount;
     private RecyclerView rcvSongForPlayList;
     private List<Song> list;
-    private static AdapterSongForPlaylist adapterSongForPlaylist;
+    private AdapterSongForPlaylist adapterSongForPlaylist;
 
 
     @Override
