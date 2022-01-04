@@ -32,18 +32,16 @@ public class FragmentDetailAlbum extends Fragment {
     private static AdapterSongForAlbum adapterSongForAlbum;
 
 
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_detail_album, container, false);
-
 
         imvAlbum = view.findViewById(R.id.imvAlbum);
         txtAlbum = view.findViewById(R.id.txtAlbum);
@@ -57,12 +55,12 @@ public class FragmentDetailAlbum extends Fragment {
         list = getList(bundle.getString("albumID"));
 
         //adapter part
-        adapterSongForAlbum = new AdapterSongForAlbum(getContext(),list);
+        adapterSongForAlbum = new AdapterSongForAlbum(getContext(), list);
         rcvSongForAlbum.setAdapter(adapterSongForAlbum);
 
         //recycle view part
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
-        //layoutManager.setAutoMeasureEnabled(true);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        layoutManager.setAutoMeasureEnabled(true);
         rcvSongForAlbum.setLayoutManager(layoutManager);
         rcvSongForAlbum.setNestedScrollingEnabled(false);
         rcvSongForAlbum.setLayoutManager(layoutManager);
@@ -72,10 +70,10 @@ public class FragmentDetailAlbum extends Fragment {
 
     private List<Song> getList(String albumID) {
         List<Song> list = new ArrayList<>();
-        for (int i = 0; i< MainActivity.listAlbum.size(); i++){
-            for (int j=0;j<MainActivity.listSong.size();j++)
-                if (MainActivity.listAlbum.get(i).getId().compareTo(albumID)==0
-                        && MainActivity.listAlbum.get(i).getId().compareTo(MainActivity.listSong.get(j).getAlbumId())==0){
+        for (int i = 0; i < MainActivity.listAlbum.size(); i++) {
+            for (int j = 0; j < MainActivity.listSong.size(); j++)
+                if (MainActivity.listAlbum.get(i).getId().compareTo(albumID) == 0
+                        && MainActivity.listAlbum.get(i).getId().compareTo(MainActivity.listSong.get(j).getAlbumId()) == 0) {
                     list.add(MainActivity.listSong.get(j));
                 }
         }

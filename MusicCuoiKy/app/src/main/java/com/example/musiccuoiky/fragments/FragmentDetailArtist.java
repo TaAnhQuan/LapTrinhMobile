@@ -72,8 +72,8 @@ public class FragmentDetailArtist extends Fragment {
         //recycle view part
         rcvAlbumForArtist.setAdapter(adapterAlbum);
         rcvSongForArtist.setAdapter(adapterSongForArtist);
-        //layoutManagerAlbum.setAutoMeasureEnabled(true);
-        //layoutManagerSong.setAutoMeasureEnabled(true);
+        layoutManagerAlbum.setAutoMeasureEnabled(true);
+        layoutManagerSong.setAutoMeasureEnabled(true);
         rcvSongForArtist.setNestedScrollingEnabled(false);
         rcvAlbumForArtist.setNestedScrollingEnabled(false);
 

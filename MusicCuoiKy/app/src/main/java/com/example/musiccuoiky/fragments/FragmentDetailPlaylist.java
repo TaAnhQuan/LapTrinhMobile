@@ -57,7 +57,7 @@ public class FragmentDetailPlaylist extends Fragment {
 
         //recycle view part
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
-        //layoutManager.setAutoMeasureEnabled(true);
+        layoutManager.setAutoMeasureEnabled(true);
         rcvSongForPlayList.setLayoutManager(layoutManager);
         rcvSongForPlayList.setNestedScrollingEnabled(false);
         rcvSongForPlayList.setLayoutManager(layoutManager);
