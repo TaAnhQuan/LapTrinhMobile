@@ -40,7 +40,6 @@ public class CreatePlaylistDialog extends DialogFragment {
     }
 
     public void show(FragmentManager fragmentManager, String create_playlist) {
-
     }
 }
 
