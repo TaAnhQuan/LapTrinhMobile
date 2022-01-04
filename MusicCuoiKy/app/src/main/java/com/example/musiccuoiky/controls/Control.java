@@ -56,9 +56,10 @@ public class Control {
         }
         try {
             PlaySongActivity.updateUI();
-            if (PlaySongActivity.FLAG_ALIVE==1) PlaySongActivity.viewPager.setCurrentItem(pos, false);
+            if (PlaySongActivity.FLAG_ALIVE == 1)
+                PlaySongActivity.viewPager.setCurrentItem(pos, false);
         } catch (NullPointerException e) {
-        } catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
         }
         setPos();
     }
@@ -70,7 +71,7 @@ public class Control {
         contentView.setImageViewResource(R.id.btnPlay, R.drawable.ic_pause_black);
         updateNotification();
         initMedia(context);
-        if (mediaPlayer != null){
+        if (mediaPlayer != null) {
             mediaPlayer.stop();
             mediaPlayer.release();
         }
@@ -85,7 +86,7 @@ public class Control {
         try {
             PlaySongActivity.updateUI();
         } catch (NullPointerException e) {
-        } catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
         }
         setPos();
     }
@@ -98,7 +99,7 @@ public class Control {
             updateNotification();
             btnPlay.setImageResource(R.drawable.ic_play_white);
             try {
-                btnPlay.setImageResource(R.drawable.ic_play_white);
+                PlaySongActivity.btnPlay.setImageResource(R.drawable.ic_play_white);
             } catch (NullPointerException e) {
             }
         } else {
@@ -109,7 +110,7 @@ public class Control {
             contentView.setImageViewResource(R.id.btnPlay, R.drawable.ic_pause_black);
             updateNotification();
             try {
-                btnPlay.setImageResource(R.drawable.ic_pause_white);
+                PlaySongActivity.btnPlay.setImageResource(R.drawable.ic_pause_white);
             } catch (NullPointerException e) {
             }
             mediaPlayer.start();
@@ -127,7 +128,7 @@ public class Control {
             mediaPlayer.release();
             btnPlay.setImageResource(R.drawable.ic_pause_white);
             try {
-                btnPlay.setImageResource(R.drawable.ic_pause_white);
+                PlaySongActivity.btnPlay.setImageResource(R.drawable.ic_pause_white);
             } catch (NullPointerException e) {
             }
             mediaPlayer = MediaPlayer.create(context, Uri.parse(MusicService.list.get(pos).getPath()));
@@ -136,7 +137,7 @@ public class Control {
             mediaPlayer = MediaPlayer.create(context, Uri.parse(MusicService.list.get(pos).getPath()));
             btnPlay.setImageResource(R.drawable.ic_play_white);
             try {
-                btnPlay.setImageResource(R.drawable.ic_play_white);
+                PlaySongActivity.btnPlay.setImageResource(R.drawable.ic_play_white);
             } catch (NullPointerException e) {
             }
         }
@@ -146,61 +147,66 @@ public class Control {
         }
         try {
             PlaySongActivity.updateUI();
-            if (PlaySongActivity.FLAG_ALIVE==1) PlaySongActivity.viewPager.setCurrentItem(pos, false);
+            if (PlaySongActivity.FLAG_ALIVE == 1)
+                PlaySongActivity.viewPager.setCurrentItem(pos, false);
         } catch (NullPointerException e) {
-        } catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
         }
         setPos();
     }
 
     public static void setPos() {
-        try{
+        try {
             //adapter song
             boolean ok = false;
-            for (int i = 0; i< AdapterSong.list.size(); i++)
-                if (AdapterSong.list.get(i).getId().compareTo(MusicService.list.get(MusicService.pos).getId())==0){
+            for (int i = 0; i < AdapterSong.list.size(); i++)
+                if (AdapterSong.list.get(i).getId().compareTo(MusicService.list.get(MusicService.pos).getId()) == 0) {
                     AdapterSong.setCurrentPos(i);
                     ok = true;
                     break;
                 }
             if (!ok) AdapterSong.setCurrentPos(-1);
-        } catch (NullPointerException e){}
+        } catch (NullPointerException e) {
+        }
 
         try {
             //adapter album
             boolean ok = false;
-            for (int i = 0; i< AdapterSongForAlbum.list.size(); i++)
-                if (AdapterSongForAlbum.list.get(i).getId().compareTo(MusicService.list.get(MusicService.pos).getId())==0){
+            for (int i = 0; i < AdapterSongForAlbum.list.size(); i++)
+                if (AdapterSongForAlbum.list.get(i).getId().compareTo(MusicService.list.get(MusicService.pos).getId()) == 0) {
                     AdapterSongForAlbum.setCurrentPos(i);
                     ok = true;
                     break;
                 }
             if (!ok) AdapterSongForAlbum.setCurrentPos(-1);
-        } catch (NullPointerException e){}
+        } catch (NullPointerException e) {
+        }
 
         try {
             //adapter artist
             boolean ok = false;
-            for (int i = 0; i< AdapterSongForArtist.list.size(); i++)
-                if (AdapterSongForArtist.list.get(i).getId().compareTo(MusicService.list.get(MusicService.pos).getId())==0){
+            for (int i = 0; i < AdapterSongForArtist.list.size(); i++)
+                if (AdapterSongForArtist.list.get(i).getId().compareTo(MusicService.list.get(MusicService.pos).getId()) == 0) {
                     AdapterSongForArtist.setCurrentPos(i);
                     ok = true;
                     break;
                 }
             if (!ok) AdapterSongForArtist.setCurrentPos(-1);
-        } catch (NullPointerException e){}
+        } catch (NullPointerException e) {
+        }
 
         try {
             //adapter playlist
             boolean ok = false;
-            for (int i = 0; i< AdapterSongForPlaylist.list.size(); i++)
-                if (AdapterSongForPlaylist.list.get(i).getId().compareTo(MusicService.list.get(MusicService.pos).getId())==0){
+            for (int i = 0; i < AdapterSongForPlaylist.list.size(); i++)
+                if (AdapterSongForPlaylist.list.get(i).getId().compareTo(MusicService.list.get(MusicService.pos).getId()) == 0) {
                     AdapterSongForPlaylist.setCurrentPos(i);
                     ok = true;
                     break;
                 }
             if (!ok) AdapterSongForPlaylist.setCurrentPos(-1);
-        } catch (NullPointerException e){}
+        } catch (NullPointerException e) {
+        }
     }
 
     public static void exit(Context context) {

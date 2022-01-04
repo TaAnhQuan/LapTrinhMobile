@@ -30,7 +30,7 @@ public class AdapterPlaylist extends RecyclerView.Adapter<AdapterPlaylist.ViewHo
         instance = this;
         this.context = context;
         this.list = list;
-        //inflater = LayoutInflater.from(context);
+        inflater = LayoutInflater.from(context);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class AdapterPlaylist extends RecyclerView.Adapter<AdapterPlaylist.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView txtPlaylist, txtCount;
+        TextView txtPlaylist, txtCount;
         public ViewHolder(View itemView) {
             super(itemView);
             txtPlaylist= itemView.findViewById(R.id.txtPlaylist);

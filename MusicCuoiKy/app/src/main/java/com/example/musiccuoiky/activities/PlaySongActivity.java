@@ -34,7 +34,7 @@ import com.example.musiccuoiky.service.MusicService;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 
-public class PlaySongActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener{
+public class PlaySongActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     public static PlaySongActivity instance;
     public static TextView txtBegin, txtEnd;
     public static ImageButton btnPrevious, btnPlay, btnNext;
@@ -44,6 +44,7 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
     public static ViewPager viewPager;
     public static AdapterViewPagerPlaySong adapter;
     public static int FLAG_ALIVE;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         FLAG_ALIVE = 1;
@@ -51,29 +52,29 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_play_song);
         instance = this;
         viewPager = findViewById(R.id.viewPager);
-        adapter = new AdapterViewPagerPlaySong(this,list);
+        adapter = new AdapterViewPagerPlaySong(this, list);
         viewPager.setAdapter(adapter);
-        viewPager.setCurrentItem(getPos(),true);
+        viewPager.setCurrentItem(getPos(), true);
         viewPager.setOnPageChangeListener(new CircularViewPagerHandler(viewPager));
         btnPrevious = findViewById(R.id.btnPrevious);
         btnPlay = findViewById(R.id.btnPlay);
         btnNext = findViewById(R.id.btnNext);
         txtBegin = findViewById(R.id.txtBegin);
         txtEnd = findViewById(R.id.txtEnd);
-        seekBar  = findViewById(R.id.seekBar);
+        seekBar = findViewById(R.id.seekBar);
         btnPrevious.setOnClickListener(this);
         btnPlay.setOnClickListener(this);
         btnNext.setOnClickListener(this);
         seekBar.setOnSeekBarChangeListener(this);
-        if (mediaPlayer==null)
+        if (mediaPlayer == null)
             setMediaPlayer(MediaPlayer.create(this, Uri.parse(list.get(getPos()).getPath())));
         updateUI();
         boolean isPlaying = false;
-        try{
-            if (mediaPlayer.isPlaying()){
+        try {
+            if (mediaPlayer.isPlaying()) {
                 isPlaying = true;
             }
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
         }
         if (isPlaying) btnPlay.setImageResource(R.drawable.ic_pause_white);
         else btnPlay.setImageResource(R.drawable.ic_play_white);
@@ -132,21 +133,21 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    public static void updateUI(){
-        complete =false;
+    public static void updateUI() {
+        complete = false;
         duration = list.get(getPos()).getDuration();
         seekBar.setMax(duration);
         setTimeTotal();
         updateTimeSong();
     }
 
-    public static void setTimeTotal(){
+    public static void setTimeTotal() {
         SimpleDateFormat format = new SimpleDateFormat("mm:ss");
         duration = list.get(getPos()).getDuration();
         txtEnd.setText(format.format(duration));
     }
 
-    public static void updateTimeSong(){
+    public static void updateTimeSong() {
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -164,9 +165,9 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
                         instance.sendBroadcast(intent);
                     }
                 });
-                handler.postDelayed(this,500);
+                handler.postDelayed(this, 500);
             }
-        },100);
+        }, 100);
     }
 
     @Override
@@ -204,9 +205,9 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public class CircularViewPagerHandler implements ViewPager.OnPageChangeListener {
-        private ViewPager   mViewPager;
-        private int         mCurrentPosition;
-        private int         mScrollState;
+        private ViewPager mViewPager;
+        private int mCurrentPosition;
+        private int mScrollState;
 
         public CircularViewPagerHandler(final ViewPager viewPager) {
             mViewPager = viewPager;
@@ -215,13 +216,13 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
         @Override
         public void onPageSelected(final int position) {
             mCurrentPosition = position;
-            Log.d("cPOS",getPos()+"");
-            Log.d("POS",position+"");
-            if (getPos()<position && getPos()!=list.size()-1){
+            Log.d("cPOS", getPos() + "");
+            Log.d("POS", position + "");
+            if (getPos() < position && getPos() != list.size() - 1) {
                 Intent intent = new Intent();
                 intent.setAction(Define.actNext);
                 sendBroadcast(intent);
-            } else if (getPos()>position && getPos()!=0){
+            } else if (getPos() > position && getPos() != 0) {
                 Intent intent = new Intent();
                 intent.setAction(Define.actPrevious);
                 sendBroadcast(intent);
@@ -252,12 +253,12 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
 
         private void handleSetNextItem() {
             final int lastPosition = mViewPager.getAdapter().getCount() - 1;
-            if(mCurrentPosition == 0) {
+            if (mCurrentPosition == 0) {
                 Intent intent = new Intent();
                 intent.setAction(Define.actPrevious);
                 sendBroadcast(intent);
                 //mViewPager.setCurrentItem(lastPosition, false);
-            } else if(mCurrentPosition == lastPosition) {
+            } else if (mCurrentPosition == lastPosition) {
                 Intent intent = new Intent();
                 intent.setAction(Define.actNext);
                 sendBroadcast(intent);

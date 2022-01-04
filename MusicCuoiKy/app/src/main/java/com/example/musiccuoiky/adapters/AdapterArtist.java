@@ -28,14 +28,11 @@ public class AdapterArtist extends RecyclerView.Adapter<AdapterArtist.ViewHolder
         instance = this;
         this.context = context;
         this.list = list;
-        //inflater = LayoutInflater.from(context);
+        inflater = LayoutInflater.from(context);
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //fix
-        LayoutInflater inflater = LayoutInflater.from(context);
-        //
         View item = inflater.inflate(R.layout.item_artist,parent,false);
         return new ViewHolder(item);
     }
@@ -64,8 +61,8 @@ public class AdapterArtist extends RecyclerView.Adapter<AdapterArtist.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private ImageView imvArtist;
-        private TextView txtArtist, txtNumOfAlbums, txtNumOfSongs;
+        ImageView imvArtist;
+        TextView txtArtist, txtNumOfAlbums, txtNumOfSongs;
         public ViewHolder(View itemView) {
             super(itemView);
             imvArtist = itemView.findViewById(R.id.imvArtist);

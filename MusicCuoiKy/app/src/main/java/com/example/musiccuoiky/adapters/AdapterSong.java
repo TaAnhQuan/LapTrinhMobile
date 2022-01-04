@@ -31,15 +31,12 @@ public class    AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder>
     public AdapterSong(Context context, List<Song> list) {
         instance = this;
         this.context = context;
-        this.list = list;
-        //inflater = LayoutInflater.from(context);
+        AdapterSong.list = list;
+        inflater = LayoutInflater.from(context);
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //fix
-        LayoutInflater inflater = LayoutInflater.from(context);
-        //
         View item = inflater.inflate(R.layout.item_song,parent,false);
         return new ViewHolder(item);
     }
@@ -85,8 +82,8 @@ public class    AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder>
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private ImageView imvSong;
-        private TextView txtSong, txtArtist;
+        ImageView imvSong;
+        TextView txtSong, txtArtist;
         public ViewHolder(View itemView) {
             super(itemView);
             imvSong = itemView.findViewById(R.id.imvSong);
