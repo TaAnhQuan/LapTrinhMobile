@@ -1,24 +1,24 @@
 package com.example.musiccuoiky.adapters;
 
-import static com.example.musiccuoiky.MusicPlayer.updatePlaylist;
-
 import android.content.Context;
 import android.os.Bundle;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
+import static com.example.musiccuoiky.MusicPlayer.updatePlaylist;
 
 import com.example.musiccuoiky.MusicPlayer;
 import com.example.musiccuoiky.R;
 import com.example.musiccuoiky.activities.MainActivity;
 import com.example.musiccuoiky.models.Playlist;
-import com.example.musiccuoiky.adapters.AdapterPlaylist.ViewHolder;
 
-import java.util.List;
 
 public class AdapterPlaylist extends RecyclerView.Adapter<AdapterPlaylist.ViewHolder>{
     List<Playlist> list;
@@ -35,9 +35,6 @@ public class AdapterPlaylist extends RecyclerView.Adapter<AdapterPlaylist.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //fix
-        LayoutInflater inflater = LayoutInflater.from(context);
-        //
         View item = inflater.inflate(R.layout.item_playlist,parent,false);
         return new ViewHolder(item);
     }
@@ -51,8 +48,8 @@ public class AdapterPlaylist extends RecyclerView.Adapter<AdapterPlaylist.ViewHo
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putLong("playlistID",list.get(position).getId());
-                bundle.putString("tv_Playlist",list.get(position).getName());
-                bundle.putInt("tv_Count",list.get(position).getSongCount());
+                bundle.putString("txtPlaylist",list.get(position).getName());
+                bundle.putInt("txtCount",list.get(position).getSongCount());
                 MainActivity.addFragmentDetailPlaylist(bundle);
             }
         });
@@ -76,7 +73,7 @@ public class AdapterPlaylist extends RecyclerView.Adapter<AdapterPlaylist.ViewHo
         TextView txtPlaylist, txtCount;
         public ViewHolder(View itemView) {
             super(itemView);
-            txtPlaylist= itemView.findViewById(R.id.txtPlaylist);
+            txtPlaylist = itemView.findViewById(R.id.txtPlaylist);
             txtCount = itemView.findViewById(R.id.txtCount);
         }
     }
