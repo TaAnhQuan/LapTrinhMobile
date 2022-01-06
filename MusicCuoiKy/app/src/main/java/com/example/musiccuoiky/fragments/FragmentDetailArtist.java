@@ -48,7 +48,7 @@ public class FragmentDetailArtist extends Fragment {
         rcvSongForArtist.setLayoutManager(layoutManagerSong);
         Bundle bundle = getArguments();
         imvArtist.setImageDrawable(Drawable.createFromPath(bundle.getString("image_Artist")));
-        txtArtist.setText(bundle.getString("tv_Artist"));
+        txtArtist.setText(bundle.getString("txtArtist"));
         listSong = getListSong(bundle.getString("artistID"));
         listAlbum = getListAlbum(bundle.getString("artistID"));
         adapterAlbum = new AdapterAlbum(getContext(), listAlbum);
