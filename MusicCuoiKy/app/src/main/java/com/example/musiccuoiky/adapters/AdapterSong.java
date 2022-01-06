@@ -1,37 +1,37 @@
 package com.example.musiccuoiky.adapters;
 
-import static com.example.musiccuoiky.service.MusicService.setPos;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.RecyclerView;
+import java.util.List;
+
+import static com.example.musiccuoiky.service.MusicService.setPos;
+
 
 import com.example.musiccuoiky.R;
+import com.example.musiccuoiky.defines.Define;
 import com.example.musiccuoiky.fragments.FragmentSong;
 import com.example.musiccuoiky.models.Song;
 import com.example.musiccuoiky.service.MusicService;
 
-import java.util.List;
-
-public class    AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder>{
+public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder>{
     public static List<Song> list;
     Context context;
     LayoutInflater inflater;
     public static int pos = FragmentSong.pos;
     public static AdapterSong instance;
-
     public AdapterSong(Context context, List<Song> list) {
         instance = this;
         this.context = context;
-        AdapterSong.list = list;
+        this.list = list;
         inflater = LayoutInflater.from(context);
     }
 
@@ -70,7 +70,7 @@ public class    AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder>
                 setPos(position);
                 MusicService.list = list;
                 Intent intent = new Intent(context, MusicService.class);
-                intent.setAction("com.musiccuoiky.music.start");
+                intent.setAction(Define.actStart);
                 context.startService(intent);
             }
         });
@@ -92,4 +92,3 @@ public class    AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder>
         }
     }
 }
-

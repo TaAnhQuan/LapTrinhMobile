@@ -3,13 +3,13 @@ package com.example.musiccuoiky.adapters;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.musiccuoiky.R;
 import com.example.musiccuoiky.activities.MainActivity;
@@ -17,13 +17,13 @@ import com.example.musiccuoiky.models.Artist;
 
 import java.util.List;
 
+
 public class AdapterArtist extends RecyclerView.Adapter<AdapterArtist.ViewHolder>{
     List<Artist> list;
     Context context;
     LayoutInflater inflater;
     int pos = 0;
     public static AdapterArtist instance;
-
     public AdapterArtist(Context context, List<Artist> list) {
         instance = this;
         this.context = context;
@@ -39,7 +39,7 @@ public class AdapterArtist extends RecyclerView.Adapter<AdapterArtist.ViewHolder
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        holder.imvArtist.setImageDrawable(Drawable.createFromPath(list.get(position).getAlbum_art()));
+        holder.imvArtist.setImageDrawable(Drawable.createFromPath(list.get(position).getAlbumArt()));
         holder.txtArtist.setText(list.get(position).getArtist());
         holder.txtNumOfAlbums.setText(list.get(position).getNumOfAlbums());
         holder.txtNumOfSongs.setText(list.get(position).getNumOfSongs());
@@ -48,8 +48,8 @@ public class AdapterArtist extends RecyclerView.Adapter<AdapterArtist.ViewHolder
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putString("artistID",list.get(position).getId());
-                bundle.putString("image_Artist",list.get(position).getAlbum_art());
-                bundle.putString("tv_Artist",list.get(position).getArtist());
+                bundle.putString("imvArtist",list.get(position).getAlbumArt());
+                bundle.putString("txtArtist",list.get(position).getArtist());
                 MainActivity.addFragmentDetailArtist(bundle);
             }
         });
