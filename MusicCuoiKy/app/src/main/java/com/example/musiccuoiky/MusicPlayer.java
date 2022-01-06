@@ -13,6 +13,10 @@ import com.example.musiccuoiky.models.Playlist;
 
 import java.util.List;
 
+/**
+ * Created by HOANG on 5/18/2018.
+ */
+
 public class MusicPlayer {
     public static void updatePlaylist(){
         List<Playlist> list;
