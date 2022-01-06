@@ -1,15 +1,5 @@
 package com.example.musiccuoiky.controls;
 
-import static com.example.musiccuoiky.activities.MainActivity.updateUI;
-import static com.example.musiccuoiky.activities.PlaySongActivity.btnPlay;
-import static com.example.musiccuoiky.service.MusicService.contentView;
-import static com.example.musiccuoiky.service.MusicService.initMedia;
-import static com.example.musiccuoiky.service.MusicService.mediaPlayer;
-import static com.example.musiccuoiky.service.MusicService.newNotification;
-import static com.example.musiccuoiky.service.MusicService.notification;
-import static com.example.musiccuoiky.service.MusicService.pos;
-import static com.example.musiccuoiky.service.MusicService.updateNotification;
-
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -21,6 +11,16 @@ import com.example.musiccuoiky.adapters.AdapterSongForAlbum;
 import com.example.musiccuoiky.adapters.AdapterSongForArtist;
 import com.example.musiccuoiky.adapters.AdapterSongForPlaylist;
 import com.example.musiccuoiky.service.MusicService;
+
+import static com.example.musiccuoiky.activities.MainActivity.btnPlay;
+import static com.example.musiccuoiky.activities.MainActivity.updateUI;
+import static com.example.musiccuoiky.service.MusicService.contentView;
+import static com.example.musiccuoiky.service.MusicService.initMedia;
+import static com.example.musiccuoiky.service.MusicService.mediaPlayer;
+import static com.example.musiccuoiky.service.MusicService.newNotification;
+import static com.example.musiccuoiky.service.MusicService.notification;
+import static com.example.musiccuoiky.service.MusicService.pos;
+import static com.example.musiccuoiky.service.MusicService.updateNotification;
 
 
 public class Control {
@@ -36,9 +36,7 @@ public class Control {
             try {
                 PlaySongActivity.btnPlay.setImageResource(R.drawable.ic_pause_white);
             } catch (NullPointerException e) {
-
             }
-
             mediaPlayer = MediaPlayer.create(context, Uri.parse(MusicService.list.get(pos).getPath()));
             mediaPlayer.start();
         } else {
@@ -47,7 +45,6 @@ public class Control {
             try {
                 PlaySongActivity.btnPlay.setImageResource(R.drawable.ic_play_white);
             } catch (NullPointerException e) {
-
             }
         }
         updateUI();
@@ -58,8 +55,7 @@ public class Control {
             PlaySongActivity.updateUI();
             if (PlaySongActivity.FLAG_ALIVE == 1)
                 PlaySongActivity.viewPager.setCurrentItem(pos, false);
-        } catch (NullPointerException e) {
-        } catch (IndexOutOfBoundsException e) {
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
         }
         setPos();
     }
@@ -77,7 +73,7 @@ public class Control {
         }
         btnPlay.setImageResource(R.drawable.ic_pause_white);
         try {
-            btnPlay.setImageResource(R.drawable.ic_pause_white);
+            PlaySongActivity.btnPlay.setImageResource(R.drawable.ic_pause_white);
         } catch (NullPointerException e) {
         }
         mediaPlayer = MediaPlayer.create(context, Uri.parse(MusicService.list.get(pos).getPath()));
@@ -85,8 +81,7 @@ public class Control {
         updateUI();
         try {
             PlaySongActivity.updateUI();
-        } catch (NullPointerException e) {
-        } catch (IndexOutOfBoundsException e) {
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
         }
         setPos();
     }
@@ -149,8 +144,7 @@ public class Control {
             PlaySongActivity.updateUI();
             if (PlaySongActivity.FLAG_ALIVE == 1)
                 PlaySongActivity.viewPager.setCurrentItem(pos, false);
-        } catch (NullPointerException e) {
-        } catch (IndexOutOfBoundsException e) {
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
         }
         setPos();
     }
@@ -214,4 +208,5 @@ public class Control {
         MusicService.mNotificationManager.cancel(1);
         System.exit(1);
     }
+
 }
