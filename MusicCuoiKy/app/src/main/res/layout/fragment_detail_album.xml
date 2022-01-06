@@ -1,20 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.FragmentDetailAlbum">
+    android:background="#fff">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <RelativeLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imvAlbum"
@@ -30,8 +26,8 @@
                 android:layout_above="@+id/txtArtist"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:singleLine="true"
-                android:text="@string/song"
-                android:textColor="@color/white"
+                android:text="Tên bài hát"
+                android:textColor="#fff"
                 android:textSize="@dimen/_14ssp" />
 
             <TextView
@@ -42,15 +38,15 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:singleLine="true"
-                android:text="@string/artist"
-                android:textColor="@color/white" />
-
+                android:text="Tên nghệ sĩ"
+                android:textColor="#fff" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvSongForAlbum"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/imvAlbum" />
+                android:layout_below="@+id/imvAlbum">
+            </androidx.recyclerview.widget.RecyclerView>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 </FrameLayout>

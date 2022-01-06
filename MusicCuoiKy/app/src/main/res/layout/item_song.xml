@@ -1,55 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
     android:id="@+id/relativeLayout"
-    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_5sdp">
-
+    android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="@dimen/_5sdp"
+    >
     <LinearLayout
         android:id="@+id/lnCheck"
         android:layout_width="@dimen/_60sdp"
         android:layout_height="@dimen/_60sdp"
         android:gravity="center"
-        android:visibility="gone">
-
+        android:visibility="gone"
+        >
         <CheckBox
             android:id="@+id/rdbCheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true" />
+            android:checked="true"
+            />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imvSong"
         android:layout_width="@dimen/_60sdp"
         android:layout_height="@dimen/_60sdp"
+        android:background="@drawable/ic_music_default"
         android:layout_toEndOf="@+id/lnCheck"
-        android:background="@drawable/ic_music_default" />
-
+        />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_60sdp"
-        android:layout_marginStart="10sp"
+        android:orientation="vertical"
         android:layout_toEndOf="@+id/imvSong"
         android:gravity="center"
-        android:orientation="vertical">
-
+        android:layout_marginStart="@dimen/_10sdp"
+        >
         <TextView
             android:id="@+id/txtSong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Tên bài hát"
+            android:textSize="@dimen/_14ssp"
             android:singleLine="true"
-            android:text="@string/song"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_14ssp" />
-
+            android:textColor="#000"
+            />
         <TextView
             android:id="@+id/txtArtist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Tên nghệ sĩ"
             android:singleLine="true"
-            android:text="@string/artist"
-            android:textColor="@color/black" />
+            android:textColor="#000"
+            />
     </LinearLayout>
 
 </RelativeLayout>

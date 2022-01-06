@@ -1,58 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.FragmentDetailPlaylist">
+    android:background="#fff">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imvPlaylist"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_200sdp"
+                android:layout_centerHorizontal="true"
                 android:background="@drawable/ic_music_default" />
 
             <TextView
                 android:id="@+id/txtPlaylist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/txtPlaylistArtist"
+                android:layout_above="@+id/txtCount"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:singleLine="true"
-                android:text="@string/playlist"
-                android:textColor="@color/white"
+                android:text="Tên playlist"
+                android:textColor="#fff"
                 android:textSize="@dimen/_14ssp" />
 
             <TextView
-                android:id="@+id/txtPlaylistArtist"
+                android:id="@+id/txtCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/imvPlaylist"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:text="@string/artist"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_14sdp" />
+                android:singleLine="true"
+                android:text="Tên nghệ sĩ"
+                android:textColor="#fff" />
 
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/imvPlaylist"
+                android:layout_alignBottom="@+id/imvPlaylist"
+                android:layout_marginEnd="16dp"
+                android:text="Thêm"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvSongForPlaylist"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/imvPlaylist" />
+                android:layout_below="@+id/imvPlaylist">
 
+            </androidx.recyclerview.widget.RecyclerView>
         </RelativeLayout>
-
     </androidx.core.widget.NestedScrollView>
-
 </FrameLayout>
