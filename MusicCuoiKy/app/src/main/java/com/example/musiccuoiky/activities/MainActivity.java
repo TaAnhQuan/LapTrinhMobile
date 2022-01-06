@@ -1,15 +1,18 @@
 package com.example.musiccuoiky.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -20,10 +23,10 @@ import android.widget.Toast;
 
 import com.example.musiccuoiky.R;
 import com.example.musiccuoiky.adapters.AdapterViewPagerMain;
-import com.example.musiccuoiky.dataloader.AlbumLoader;
-import com.example.musiccuoiky.dataloader.ArtistLoader;
-import com.example.musiccuoiky.dataloader.PlaylistLoader;
-import com.example.musiccuoiky.dataloader.SongLoader;
+import com.example.musiccuoiky.dataloaders.AlbumLoader;
+import com.example.musiccuoiky.dataloaders.ArtistLoader;
+import com.example.musiccuoiky.dataloaders.PlaylistLoader;
+import com.example.musiccuoiky.dataloaders.SongLoader;
 import com.example.musiccuoiky.defines.Define;
 import com.example.musiccuoiky.fragments.FragmentDetailAlbum;
 import com.example.musiccuoiky.fragments.FragmentDetailArtist;
@@ -33,13 +36,11 @@ import com.example.musiccuoiky.models.Artist;
 import com.example.musiccuoiky.models.Playlist;
 import com.example.musiccuoiky.models.Song;
 import com.example.musiccuoiky.service.MusicService;
-import com.google.android.material.tabs.TabLayout;
-
-import static com.example.musiccuoiky.service.MusicService.getPos;
-
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.musiccuoiky.service.MusicService.getPos;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static MainActivity instance;
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static List<Artist> listArtist = new ArrayList<>();
     public static List<Playlist> playList = new ArrayList<>();
     public static LinearLayout bottomBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,16 +64,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addPermission();
     }
 
-    public static void updateList(){
+    public static void updateList() {
         listSong = SongLoader.getListSongs(instance);
         listAlbum = AlbumLoader.getListAlbums(instance);
         listArtist = ArtistLoader.getListArtist(instance);
         playList = PlaylistLoader.getPlaylist(instance);
     }
 
-    public void setControl(){
+    public void setControl() {
         updateList();
-        Intent intent = new Intent(this,MusicService.class);
+        Intent intent = new Intent(this, MusicService.class);
         startService(intent);
         MusicService.list = listSong;
         viewPager = findViewById(R.id.viewPager);
@@ -97,39 +99,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         updateUI();
     }
 
-    public static void addFragmentDetailAlbum(Bundle bundle){
+    public static void addFragmentDetailAlbum(Bundle bundle) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         FragmentDetailAlbum fragmentDetailAlbum = new FragmentDetailAlbum();
         fragmentDetailAlbum.setArguments(bundle);
-        transaction.add(R.id.placeHolder,fragmentDetailAlbum);
+        transaction.add(R.id.placeHolder, fragmentDetailAlbum);
         transaction.addToBackStack("album");
         transaction.commit();
     }
 
-    public static void addFragmentDetailArtist(Bundle bundle){
+    public static void addFragmentDetailArtist(Bundle bundle) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         FragmentDetailArtist fragmentDetailArtist = new FragmentDetailArtist();
         fragmentDetailArtist.setArguments(bundle);
-        transaction.add(R.id.placeHolder,fragmentDetailArtist);
+        transaction.add(R.id.placeHolder, fragmentDetailArtist);
         transaction.addToBackStack("artist");
         transaction.commit();
     }
 
-    public static void addFragmentDetailPlaylist(Bundle bundle){
+    public static void addFragmentDetailPlaylist(Bundle bundle) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         FragmentDetailPlaylist fragmentDetailPlaylist = new FragmentDetailPlaylist();
         fragmentDetailPlaylist.setArguments(bundle);
-        transaction.add(R.id.placeHolder,fragmentDetailPlaylist);
+        transaction.add(R.id.placeHolder, fragmentDetailPlaylist);
         transaction.addToBackStack("playlist");
         transaction.commit();
     }
 
-    public static void updateUI(){
+    public static void updateUI() {
         try {
             imvSong.setImageDrawable(Drawable.createFromPath(MusicService.list.get(getPos()).getAlbumArt()));
             txtSong.setText(MusicService.list.get(getPos()).getName());
             txtArtist.setText(MusicService.list.get(getPos()).getArtist());
-        } catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
 
         }
     }
@@ -143,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case 1: {
 
@@ -168,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(MainActivity.this, MusicService.class);
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.btnPrevious:
                 intent.setAction(Define.actPrevious);
                 startService(intent);
