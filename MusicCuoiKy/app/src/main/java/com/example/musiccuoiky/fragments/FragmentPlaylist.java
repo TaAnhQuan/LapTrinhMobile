@@ -40,7 +40,7 @@ public class FragmentPlaylist extends Fragment implements View.OnClickListener{
         adapterPlaylist = new AdapterPlaylist(getContext(),list);
         rcvPlaylist.setAdapter(adapterPlaylist);
         rcvPlaylist.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-        btnTaoPlaylist = view.findViewById(R.id.btnCreatePlayList);
+        btnTaoPlaylist = view.findViewById(R.id.btnCreatePlaylist);
         btnTaoPlaylist.setOnClickListener(this);
         return view;
     }
