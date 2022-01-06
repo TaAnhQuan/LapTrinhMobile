@@ -3,16 +3,15 @@ package com.example.musiccuoiky.adapters;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.example.musiccuoiky.R;
 import com.example.musiccuoiky.activities.MainActivity;
-
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.musiccuoiky.models.Album;
 
 import java.util.List;
@@ -21,9 +20,8 @@ public class AdapterAlbum extends RecyclerView.Adapter<AdapterAlbum.ViewHolder>{
     List<Album> list;
     Context context;
     LayoutInflater inflater;
-    int pos= 0;
+    int pos = 0;
     public static AdapterAlbum instance;
-
     public AdapterAlbum(Context context, List<Album> list) {
         instance = this;
         this.context = context;
@@ -48,9 +46,9 @@ public class AdapterAlbum extends RecyclerView.Adapter<AdapterAlbum.ViewHolder>{
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putString("albumID",list.get(position).getId());
-                bundle.putString("image_Album",list.get(position).getAlbumArt());
-                bundle.putString("tv_Album",list.get(position).getAlbum());
-                bundle.putString("tv_Artist",list.get(position).getArtist());
+                bundle.putString("imvAlbum",list.get(position).getAlbumArt());
+                bundle.putString("txtAlbum",list.get(position).getAlbum());
+                bundle.putString("txtArtist",list.get(position).getArtist());
                 MainActivity.addFragmentDetailAlbum(bundle);
             }
         });
