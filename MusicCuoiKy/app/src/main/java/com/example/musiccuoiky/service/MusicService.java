@@ -12,12 +12,11 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
-import android.widget.RemoteViews;
-import android.widget.Toast;
-
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import android.widget.RemoteViews;
+import android.widget.Toast;
 
 import com.example.musiccuoiky.R;
 import com.example.musiccuoiky.SwitchButtonListener;
@@ -26,6 +25,7 @@ import com.example.musiccuoiky.defines.Define;
 import com.example.musiccuoiky.models.Song;
 
 import java.util.List;
+
 
 public class MusicService extends Service {
     public static MusicService instance;
