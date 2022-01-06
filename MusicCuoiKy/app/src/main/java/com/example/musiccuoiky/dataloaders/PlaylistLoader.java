@@ -1,4 +1,4 @@
-package com.example.musiccuoiky.dataloader;
+package com.example.musiccuoiky.dataloaders;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;

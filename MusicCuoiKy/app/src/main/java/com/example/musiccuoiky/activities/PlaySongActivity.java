@@ -1,17 +1,16 @@
 package com.example.musiccuoiky.activities;
 
-import static com.example.musiccuoiky.service.MusicService.getPos;
-import static com.example.musiccuoiky.service.MusicService.mediaPlayer;
-import static com.example.musiccuoiky.service.MusicService.setMediaPlayer;
-import static com.example.musiccuoiky.service.MusicService.list;
-
-
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.annotation.Nullable;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
@@ -21,10 +20,6 @@ import android.widget.Scroller;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import com.example.musiccuoiky.R;
 import com.example.musiccuoiky.SwitchButtonListener;
 import com.example.musiccuoiky.adapters.AdapterViewPagerPlaySong;
@@ -33,6 +28,11 @@ import com.example.musiccuoiky.service.MusicService;
 
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
+
+import static com.example.musiccuoiky.service.MusicService.getPos;
+import static com.example.musiccuoiky.service.MusicService.list;
+import static com.example.musiccuoiky.service.MusicService.mediaPlayer;
+import static com.example.musiccuoiky.service.MusicService.setMediaPlayer;
 
 public class PlaySongActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     public static PlaySongActivity instance;
@@ -97,9 +97,7 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
             FixedSpeedScroller scroller = new FixedSpeedScroller(viewPager.getContext(), sInterpolator);
             // scroller.setFixedDuration(5000);
             mScroller.set(viewPager, scroller);
-        } catch (NoSuchFieldException e) {
-        } catch (IllegalArgumentException e) {
-        } catch (IllegalAccessException e) {
+        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e) {
         }
     }
 
@@ -139,6 +137,7 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
         seekBar.setMax(duration);
         setTimeTotal();
         updateTimeSong();
+
     }
 
     public static void setTimeTotal() {

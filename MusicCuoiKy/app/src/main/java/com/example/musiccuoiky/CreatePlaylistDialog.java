@@ -1,18 +1,15 @@
 package com.example.musiccuoiky;
 
-import static com.example.musiccuoiky.MusicPlayer.updatePlaylist;
-
-
 import android.app.Dialog;
-import android.app.DialogFragment;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
-
+import androidx.fragment.app.DialogFragment;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.example.musiccuoiky.MusicPlayer;
 
+import static com.example.musiccuoiky.MusicPlayer.updatePlaylist;
 
 public class CreatePlaylistDialog extends DialogFragment {
     public static CreatePlaylistDialog instance;
@@ -38,8 +35,4 @@ public class CreatePlaylistDialog extends DialogFragment {
                     }
                 }).show();
     }
-
-    public void show(FragmentManager fragmentManager, String create_playlist) {
-    }
 }
-
