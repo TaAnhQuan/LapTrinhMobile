@@ -29,7 +29,7 @@
             app:thumbColor="#FF4444" />
 
         <TextView
-            android:id="@+id/tv_Begin"
+            android:id="@+id/txtBegin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/seekBar"
@@ -38,7 +38,7 @@
             android:text="00:00" />
 
         <TextView
-            android:id="@+id/tv_End"
+            android:id="@+id/txtEnd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/seekBar"
