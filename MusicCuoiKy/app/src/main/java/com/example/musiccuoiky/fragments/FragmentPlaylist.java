@@ -55,7 +55,7 @@ public class FragmentPlaylist extends Fragment implements View.OnClickListener{
         CreatePlaylistDialog playlistDialog = new CreatePlaylistDialog();
         playlistDialog.show(getFragmentManager(), "create playlist");
 
-        Uri uri = MediaStore.Audio.Playlists.INTERNAL_CONTENT_URI;
+
 
     }
 }

@@ -11,7 +11,7 @@ import com.example.musiccuoiky.MusicPlayer;
 
 import static com.example.musiccuoiky.MusicPlayer.updatePlaylist;
 
-public class CreatePlaylistDialog extends DialogFragment {
+public class  CreatePlaylistDialog extends DialogFragment {
     public static CreatePlaylistDialog instance;
 
     public CreatePlaylistDialog() {
@@ -30,7 +30,7 @@ public class CreatePlaylistDialog extends DialogFragment {
                     @Override
                     public void onInput(MaterialDialog dialog, CharSequence input) {
                         // Do something
-                        long playistId = MusicPlayer.createPlaylist(getActivity(), input.toString());
+                        long playlistId = MusicPlayer.createPlaylist(getActivity(), input.toString());
                         updatePlaylist();
                     }
                 }).show();
