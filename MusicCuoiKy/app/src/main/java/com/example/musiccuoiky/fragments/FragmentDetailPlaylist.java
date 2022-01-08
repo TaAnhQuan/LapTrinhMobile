@@ -1,19 +1,31 @@
 package com.example.musiccuoiky.fragments;
+import static com.example.musiccuoiky.MusicPlayer.updatePlaylist;
+
+import android.app.Dialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.MediaStore;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.musiccuoiky.R;
 import com.example.musiccuoiky.adapters.AdapterSongForPlaylist;
+import com.example.musiccuoiky.models.Playlist;
 import com.example.musiccuoiky.models.Song;
 
 import java.util.ArrayList;
@@ -26,6 +38,8 @@ public class FragmentDetailPlaylist extends Fragment {
     public static RecyclerView rcvSongForPlaylist;
     public static AdapterSongForPlaylist adapterSongForPlaylist;
     public static List<Song> list;
+    public static Button btnAddSong;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,13 +47,26 @@ public class FragmentDetailPlaylist extends Fragment {
         instance = this;
         txtPlaylist = view.findViewById(R.id.txtPlaylist);
         txtCount = view.findViewById(R.id.txtCount);
+        rcvSongForPlaylist = view.findViewById(R.id.rcvSongForPlaylist);
+        btnAddSong = view.findViewById(R.id.btnAddSong);
+
+        btnAddSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addSong();
+            }
+        });
+
+
+
         Bundle bundle = getArguments();
         txtPlaylist.setText(bundle.getString("txtPlaylist"));
         txtCount.setText(bundle.getInt("tv_Count")+" bài hát");
-        rcvSongForPlaylist = view.findViewById(R.id.rcvSongForPlaylist);
         list = getListSongForPlaylist(bundle.getLong("playlistID"));
+
         adapterSongForPlaylist = new AdapterSongForPlaylist(getContext(),list);
         rcvSongForPlaylist.setAdapter(adapterSongForPlaylist);
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
         layoutManager.setAutoMeasureEnabled(true);
         rcvSongForPlaylist.setLayoutManager(layoutManager);
@@ -52,26 +79,26 @@ public class FragmentDetailPlaylist extends Fragment {
         List<Song> list = new ArrayList<>();
         Cursor c = makePlaylistSongCursor(instance.getContext(),playlistID);
         for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-            String id, name, title, album, album_id, artist, artist_id, path, album_art="";
+            String id, name, title, album, albumId, artist, artistId, path, albumArt="";
             int duration;
             id = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Playlists.Members.AUDIO_ID));
             name = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DISPLAY_NAME));
             title = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.TITLE));
             album = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.ALBUM));
-            album_id = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.ALBUM_ID));
+            albumId = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.ALBUM_ID));
             artist = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.ARTIST));
-            artist_id = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.ARTIST_ID));
+            artistId = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.ARTIST_ID));
             duration = c.getInt(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DURATION));
             path = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DATA));
             Cursor cursor = instance.getContext().getContentResolver().query(MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI,
                     new String[] {MediaStore.Audio.Albums._ID, MediaStore.Audio.Albums.ALBUM_ART},
                     MediaStore.Audio.Albums._ID+ "=?",
-                    new String[] {String.valueOf(album_id)},
+                    new String[] {String.valueOf(albumId)},
                     null);
             if (cursor.moveToFirst()) {
-                album_art = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ART));
+                albumArt = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ART));
             }
-            Song song = new Song(id, name, title, album, album_id, artist,artist_id, path, album_art, duration);
+            Song song = new Song(id, name, title, album, albumId, artist,artistId, path, albumArt, duration);
             list.add(song);
 
         }
@@ -97,5 +124,20 @@ public class FragmentDetailPlaylist extends Fragment {
                         MediaStore.Audio.AudioColumns.DATA
                 }, mSelection.toString(), null,
                 MediaStore.Audio.Playlists.Members.DEFAULT_SORT_ORDER);
+    }
+
+    private Dialog addSong(){
+        return new MaterialDialog.Builder(this.getContext())
+                                        .title("Chọn bản nhạc")
+                                        .items(FragmentSong.list)
+                                        .itemsCallback(new MaterialDialog.ListCallback() {
+                                            @Override
+                                            public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                                                //list = getListSongForPlaylist(which);
+                                                Toast.makeText(getContext(),"song selected", Toast.LENGTH_SHORT).show();
+                                            }
+                                        })
+                                        .show();
+
     }
 }

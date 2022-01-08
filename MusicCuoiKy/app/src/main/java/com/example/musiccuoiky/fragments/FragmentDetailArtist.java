@@ -88,13 +88,13 @@ public class FragmentDetailArtist extends Fragment {
                         m_data, null, null, null);
 
         for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-            String id, album, album_art, artist, number_of_songs;
+            String id, album, albumArt, artist, numberOfSongs;
             id = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Albums._ID));
             album = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Albums.ALBUM));
-            album_art = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Albums.ALBUM_ART));
+            albumArt = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Albums.ALBUM_ART));
             artist = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Albums.ARTIST));
-            number_of_songs = " (" + c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Albums.NUMBER_OF_SONGS)) + ")";
-            Album albums = new Album(id, album, album_art, artist, number_of_songs);
+            numberOfSongs = " (" + c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Albums.NUMBER_OF_SONGS)) + ")";
+            Album albums = new Album(id, album, albumArt, artist, numberOfSongs);
             list.add(albums);
         }
         return list;

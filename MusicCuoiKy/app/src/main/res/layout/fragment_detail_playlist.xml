@@ -42,7 +42,7 @@
                 android:textColor="#fff" />
 
             <Button
-                android:id="@+id/btnAdd"
+                android:id="@+id/btnAddSong"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/imvPlaylist"
