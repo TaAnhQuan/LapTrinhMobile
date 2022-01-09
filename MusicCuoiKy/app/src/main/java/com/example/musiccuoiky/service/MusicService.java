@@ -59,7 +59,7 @@ public class MusicService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Toast.makeText(this, "start service", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "start service", Toast.LENGTH_SHORT).show();
         try {
             if (intent.getAction().compareTo(Define.actPrevious) == 0) {
 //                Toast.makeText(this,"previous",Toast.LENGTH_SHORT).show();
@@ -92,7 +92,7 @@ public class MusicService extends Service {
     public static void newNotification(Context context) {
         builder = new NotificationCompat.Builder(context, CHANNEL_ID);
         builder.setContentTitle("My Music");
-        builder.setContentText("thông báo abcd");
+        builder.setContentText("thông báo");
         builder.setSmallIcon(R.drawable.ic_music_default);
         builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),
                 R.drawable.ic_music_default));

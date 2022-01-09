@@ -27,6 +27,7 @@ import com.example.musiccuoiky.models.Song;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class FragmentDetailArtist extends Fragment {
     public static ImageView imvArtist;
     public static TextView txtArtist;
@@ -49,7 +50,7 @@ public class FragmentDetailArtist extends Fragment {
         rcvAlbumForArtist.setLayoutManager(layoutManagerAlbum);
         rcvSongForArtist.setLayoutManager(layoutManagerSong);
         Bundle bundle = getArguments();
-        imvArtist.setImageDrawable(Drawable.createFromPath(bundle.getString("image_Artist")));
+        imvArtist.setImageDrawable(Drawable.createFromPath(bundle.getString("imvArtist")));
         txtArtist.setText(bundle.getString("txtArtist"));
         listSong = getListSong(bundle.getString("artistID"));
         listAlbum = getListAlbum(bundle.getString("artistID"));
