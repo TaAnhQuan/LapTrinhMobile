@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/layout"
         android:overScrollMode="never">
+
     </androidx.viewpager.widget.ViewPager>
 
     <RelativeLayout
@@ -35,7 +36,7 @@
             android:layout_below="@+id/seekBar"
             android:layout_alignParentStart="true"
             android:layout_marginTop="@dimen/_5sdp"
-            android:text="00:00" />
+            android:text="@string/start_time" />
 
         <TextView
             android:id="@+id/txtEnd"
@@ -44,7 +45,7 @@
             android:layout_below="@+id/seekBar"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_5sdp"
-            android:text="04:00" />
+            android:text="@string/end_time" />
     </RelativeLayout>
 
     <LinearLayout
@@ -65,7 +66,7 @@
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:background="@null"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 android:src="@drawable/ic_previous_white" />
 
             <ImageButton
@@ -75,7 +76,7 @@
                 android:layout_marginLeft="@dimen/_30sdp"
                 android:layout_marginRight="@dimen/_30sdp"
                 android:background="@null"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 android:src="@drawable/ic_play_white" />
 
             <ImageButton
@@ -83,8 +84,18 @@
                 android:layout_width="20dp"
                 android:layout_height="@dimen/_30sdp"
                 android:background="@null"
-                android:scaleType="fitXY"
+                android:scaleType="fitCenter"
                 android:src="@drawable/ic_next_white" />
+
+            <ImageButton
+                android:id="@+id/btnFavorite"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:onClick="onClick"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_unfavorite_white" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

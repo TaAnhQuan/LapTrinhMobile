@@ -5,6 +5,9 @@
     <string name="artist">Tên nghệ sĩ</string>
     <string name="playlist">Tên playlist</string>
     <string name="song">Tên bài hát</string>
+    <string name="start_time">00:00</string>
+    <string name="end_time">04:00</string>
+
 
 
 </resources>

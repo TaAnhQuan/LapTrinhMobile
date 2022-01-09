@@ -37,10 +37,11 @@ import static com.example.musiccuoiky.service.MusicService.setMediaPlayer;
 public class PlaySongActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     public static PlaySongActivity instance;
     public static TextView txtBegin, txtEnd;
-    public static ImageButton btnPrevious, btnPlay, btnNext;
+    public static ImageButton btnPrevious, btnPlay, btnNext, btnFavorite;
     public static SeekBar seekBar;
     public static int duration;
     public static boolean complete = false;
+    public static boolean favorite = false;
     public static ViewPager viewPager;
     public static AdapterViewPagerPlaySong adapter;
     public static int FLAG_ALIVE;
@@ -59,6 +60,7 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
         btnPrevious = findViewById(R.id.btnPrevious);
         btnPlay = findViewById(R.id.btnPlay);
         btnNext = findViewById(R.id.btnNext);
+        btnFavorite = findViewById(R.id.btnFavorite);
         txtBegin = findViewById(R.id.txtBegin);
         txtEnd = findViewById(R.id.txtEnd);
         seekBar = findViewById(R.id.seekBar);
@@ -174,6 +176,8 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = new Intent(PlaySongActivity.this, MusicService.class);
         switch (view.getId()) {
             case R.id.btnPrevious:
+                favorite = false;
+                btnFavorite.setImageResource(R.drawable.ic_unfavorite_white);
                 intent.setAction(Define.actPrevious);
                 startService(intent);
                 break;
@@ -182,8 +186,19 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
                 startService(intent);
                 break;
             case R.id.btnNext:
+                favorite = false;
+                btnFavorite.setImageResource(R.drawable.ic_unfavorite_white);
                 intent.setAction(Define.actNext);
                 startService(intent);
+                break;
+            case R.id.btnFavorite:
+                if (!favorite) {
+                    btnFavorite.setImageResource(R.drawable.ic_favorite);
+                    favorite = true;
+                } else {
+                    btnFavorite.setImageResource(R.drawable.ic_unfavorite_white);
+                    favorite = false;
+                }
                 break;
         }
     }

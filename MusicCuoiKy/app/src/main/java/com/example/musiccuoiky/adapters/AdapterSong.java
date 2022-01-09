@@ -68,7 +68,7 @@ public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder> {
                     holder.btnFavorite.setImageResource(R.drawable.ic_favorite);
                     isFavorite[0] = true;
                 }else{
-                    holder.btnFavorite.setImageResource(R.drawable.ic_unfavorite);
+                    holder.btnFavorite.setImageResource(R.drawable.ic_unfavorite_black);
                     isFavorite[0] = false;
                 }
             }
@@ -110,7 +110,7 @@ public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder> {
             imvSong = itemView.findViewById(R.id.imvSong);
             txtSong = itemView.findViewById(R.id.txtSong);
             txtArtist = itemView.findViewById(R.id.txtArtist);
-            btnFavorite = itemView.findViewById(R.id.bntFavorite);
+            btnFavorite = itemView.findViewById(R.id.btnFavorite);
         }
     }
 }

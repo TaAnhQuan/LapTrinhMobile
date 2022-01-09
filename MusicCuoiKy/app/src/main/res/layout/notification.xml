@@ -1,17 +1,16 @@
-<LinearLayout
-    android:id="@+id/bottomBar"
+<LinearLayout android:id="@+id/bottomBar"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:clickable="true"
-    >
+    android:clickable="true">
+
     <LinearLayout
         android:layout_width="@dimen/_100sdp"
         android:layout_height="@dimen/_50sdp"
         android:orientation="vertical"
         android:gravity="center_vertical"
-        android:layout_marginStart="@dimen/_10sdp"
-        >
+        android:layout_marginStart="@dimen/_10sdp">
+
         <TextView
             android:id="@+id/txtSong"
             android:layout_width="wrap_content"
@@ -19,30 +18,30 @@
             android:text="Tên bài hát"
             android:textSize="@dimen/_15ssp"
             android:singleLine="true"
-            android:textColor="#000"
-            />
+            android:textColor="#000" />
+
         <TextView
             android:id="@+id/txtArtist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tên nghệ sĩ"
             android:singleLine="true"
-            android:textColor="#000"
-            />
+            android:textColor="#000" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="@dimen/_145sdp"
         android:layout_height="@dimen/_50sdp"
-        android:gravity="center"
-        >
+        android:gravity="center">
+
         <ImageButton
             android:id="@+id/btnPrevious"
             android:layout_width="@dimen/_15sdp"
             android:layout_height="@dimen/_18sdp"
             android:src="@drawable/ic_previous_black"
             android:scaleType="fitXY"
-            android:background="@null"
-            />
+            android:background="@null" />
+
         <ImageButton
             android:id="@+id/btnPlay"
             android:layout_width="@dimen/_15sdp"
@@ -51,16 +50,16 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:layout_marginRight="@dimen/_15sdp"
             android:scaleType="fitXY"
-            android:background="@null"
-            />
+            android:background="@null" />
+
         <ImageButton
             android:id="@+id/btnNext"
             android:layout_width="@dimen/_15sdp"
             android:layout_height="@dimen/_18sdp"
             android:src="@drawable/ic_next_black"
             android:scaleType="fitXY"
-            android:background="@null"
-            />
+            android:background="@null" />
+
         <ImageButton
             android:id="@+id/btnExit"
             android:layout_width="@dimen/_15sdp"
@@ -68,9 +67,9 @@
             android:src="@drawable/ic_exit"
             android:scaleType="fitXY"
             android:background="@null"
-            android:layout_marginLeft="@dimen/_15sdp"
-            />
+            android:layout_marginStart="@dimen/_15sdp" />
     </LinearLayout>
+
     <ImageView
         android:id="@+id/imvSong"
         android:layout_width="@dimen/_30sdp"
@@ -78,6 +77,5 @@
         android:background="@drawable/ic_music_default"
         android:layout_gravity="center"
         android:layout_marginStart="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        />
+        android:layout_marginEnd="@dimen/_10sdp" />
 </LinearLayout>

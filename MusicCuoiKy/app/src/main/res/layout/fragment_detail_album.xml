@@ -26,7 +26,7 @@
                 android:layout_above="@+id/txtArtist"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:singleLine="true"
-                android:text="Tên bài hát"
+                android:text="@string/song"
                 android:textColor="#fff"
                 android:textSize="@dimen/_14ssp" />
 
@@ -38,7 +38,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:singleLine="true"
-                android:text="Tên nghệ sĩ"
+                android:text="@string/artist"
                 android:textColor="#fff" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -46,6 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/imvAlbum">
+
             </androidx.recyclerview.widget.RecyclerView>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>

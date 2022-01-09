@@ -26,7 +26,7 @@
                 android:layout_above="@+id/txtCount"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:singleLine="true"
-                android:text="Tên playlist"
+                android:text="@string/playlist"
                 android:textColor="#fff"
                 android:textSize="@dimen/_14ssp" />
 
@@ -38,7 +38,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:singleLine="true"
-                android:text="Tên nghệ sĩ"
+                android:text="@string/artist"
                 android:textColor="#fff" />
 
             <Button
@@ -48,7 +48,7 @@
                 android:layout_alignEnd="@+id/imvPlaylist"
                 android:layout_alignBottom="@+id/imvPlaylist"
                 android:layout_marginEnd="16dp"
-                android:text="Thêm"/>
+                android:text="Thêm" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvSongForPlaylist"
