@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,6 +59,21 @@ public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder> {
         holder.imvSong.setImageDrawable(Drawable.createFromPath(list.get(position).getAlbumArt()));
         holder.txtSong.setText(list.get(position).getName());
         holder.txtArtist.setText(list.get(position).getArtist());
+
+        boolean[] isFavorite = {false};
+        holder.btnFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isFavorite[0]){
+                    holder.btnFavorite.setImageResource(R.drawable.ic_favorite);
+                    isFavorite[0] = true;
+                }else{
+                    holder.btnFavorite.setImageResource(R.drawable.ic_unfavorite);
+                    isFavorite[0] = false;
+                }
+            }
+        });
+
         if (list.get(position).getId().compareTo(MusicService.list.get(MusicService.pos).getId()) == 0) {
             holder.txtSong.setTextColor(Color.MAGENTA);
             holder.txtArtist.setTextColor(Color.MAGENTA);
@@ -87,12 +103,14 @@ public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imvSong;
         TextView txtSong, txtArtist;
+        ImageButton btnFavorite;
 
         public ViewHolder(View itemView) {
             super(itemView);
             imvSong = itemView.findViewById(R.id.imvSong);
             txtSong = itemView.findViewById(R.id.txtSong);
             txtArtist = itemView.findViewById(R.id.txtArtist);
+            btnFavorite = itemView.findViewById(R.id.bntFavorite);
         }
     }
 }
