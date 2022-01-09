@@ -1,10 +1,12 @@
 package com.example.musiccuoiky.fragments;
 
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,13 +23,14 @@ public class FragmentArtist extends Fragment {
     RecyclerView rcvArtist;
     AdapterArtist adapterArtist;
     List<Artist> list;
+
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_artist,container,false);
+        View view = inflater.inflate(R.layout.fragment_artist, container, false);
         rcvArtist = view.findViewById(R.id.rcvArtist);
         list = MainActivity.listArtist;
-        adapterArtist = new AdapterArtist(getContext(),list);
+        adapterArtist = new AdapterArtist(getContext(), list);
         rcvArtist.setAdapter(adapterArtist);
-        rcvArtist.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+        rcvArtist.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         return view;
     }
 }

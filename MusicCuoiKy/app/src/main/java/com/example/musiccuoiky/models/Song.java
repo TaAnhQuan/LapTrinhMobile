@@ -2,8 +2,9 @@ package com.example.musiccuoiky.models;
 
 
 public class Song {
-    private String id, name, title, album, albumId,artist, artistId, path, albumArt;
+    private String id, name, title, album, albumId, artist, artistId, path, albumArt;
     private int duration;
+
     public Song() {
     }
 

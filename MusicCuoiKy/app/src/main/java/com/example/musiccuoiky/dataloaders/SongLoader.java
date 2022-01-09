@@ -33,7 +33,7 @@ public class SongLoader {
                     MediaStore.Audio.Media.TITLE + " ASC");
             for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
 
-                String id, name, title, album, album_id, artist, artist_id, path, album_art="";
+                String id, name, title, album, album_id, artist, artist_id, path, album_art = "";
                 int duration;
                 id = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Media._ID));
                 name = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Media.DISPLAY_NAME));
@@ -45,19 +45,19 @@ public class SongLoader {
                 duration = c.getInt(c.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION));
                 path = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA));
                 Cursor cursor = context.getContentResolver().query(MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI,
-                        new String[] {MediaStore.Audio.Albums._ID, MediaStore.Audio.Albums.ALBUM_ART},
-                        MediaStore.Audio.Albums._ID+ "=?",
-                        new String[] {String.valueOf(album_id)},
+                        new String[]{MediaStore.Audio.Albums._ID, MediaStore.Audio.Albums.ALBUM_ART},
+                        MediaStore.Audio.Albums._ID + "=?",
+                        new String[]{String.valueOf(album_id)},
                         null);
                 if (cursor.moveToFirst()) {
                     album_art = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ART));
                 }
-                Song song = new Song(id, name, title, album, album_id, artist,artist_id, path, album_art, duration);
+                Song song = new Song(id, name, title, album, album_id, artist, artist_id, path, album_art, duration);
                 mListSongs.add(song);
 
             }
             c.close();
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
         }
         return mListSongs;
     }

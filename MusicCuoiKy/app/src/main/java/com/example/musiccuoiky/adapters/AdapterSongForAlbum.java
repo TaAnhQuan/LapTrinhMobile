@@ -1,10 +1,13 @@
 package com.example.musiccuoiky.adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +24,13 @@ import com.example.musiccuoiky.models.Song;
 import com.example.musiccuoiky.service.MusicService;
 
 
-public class AdapterSongForAlbum extends RecyclerView.Adapter<AdapterSongForAlbum.ViewHolder>{
+public class AdapterSongForAlbum extends RecyclerView.Adapter<AdapterSongForAlbum.ViewHolder> {
     public static List<Song> list;
     Context context;
     LayoutInflater inflater;
     public static int pos = -1;
     public static AdapterSongForAlbum instance;
+
     public AdapterSongForAlbum(Context context, List<Song> list) {
         instance = this;
         this.context = context;
@@ -36,29 +40,29 @@ public class AdapterSongForAlbum extends RecyclerView.Adapter<AdapterSongForAlbu
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View item = inflater.inflate(R.layout.item_song,parent,false);
+        View item = inflater.inflate(R.layout.item_song, parent, false);
         return new ViewHolder(item);
     }
 
-    public static void setCurrentPos(int pos){
+    public static void setCurrentPos(int pos) {
         instance.pos = pos;
         try {
             instance.notifyDataSetChanged();
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
         }
 
     }
 
-    public static int getCurrentPos(){
+    public static int getCurrentPos() {
         return pos;
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         holder.imvSong.setImageDrawable(Drawable.createFromPath(list.get(position).getAlbumArt()));
         holder.txtSong.setText(list.get(position).getName());
         holder.txtArtist.setText(list.get(position).getArtist());
-        if (list.get(position).getId().compareTo(MusicService.list.get(MusicService.pos).getId())==0){
+        if (list.get(position).getId().compareTo(MusicService.list.get(MusicService.pos).getId()) == 0) {
             holder.txtSong.setTextColor(Color.MAGENTA);
             holder.txtArtist.setTextColor(Color.MAGENTA);
         } else {
@@ -84,9 +88,10 @@ public class AdapterSongForAlbum extends RecyclerView.Adapter<AdapterSongForAlbu
         return list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imvSong;
         TextView txtSong, txtArtist;
+
         public ViewHolder(View itemView) {
             super(itemView);
             imvSong = itemView.findViewById(R.id.imvSong);

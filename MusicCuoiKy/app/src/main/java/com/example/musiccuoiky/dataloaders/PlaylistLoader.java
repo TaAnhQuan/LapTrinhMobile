@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 
 import com.example.musiccuoiky.models.Playlist;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class PlaylistLoader {
         String[] m_data = {MediaStore.Audio.Playlists._ID,
                 MediaStore.Audio.Playlists.NAME,};
         Cursor c = context.getContentResolver().query(
-                uri, m_data, null, null,null);
+                uri, m_data, null, null, null);
 
         for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
             String name;
@@ -29,14 +30,15 @@ public class PlaylistLoader {
             int count;
             id = c.getLong(c.getColumnIndexOrThrow(MediaStore.Audio.Playlists._ID));
             name = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Playlists.NAME));
-            count = countPlaylist(context,id);
-            Playlist playlist = new Playlist(id,name,count);
+            count = countPlaylist(context, id);
+            Playlist playlist = new Playlist(id, name, count);
             mPlaylist.add(playlist);
 
         }
         c.close();
         return mPlaylist;
     }
+
     private static int countPlaylist(final Context context, final long playlistId) {
         Cursor c = context.getContentResolver().query(
                 MediaStore.Audio.Playlists.Members.getContentUri("external", playlistId),

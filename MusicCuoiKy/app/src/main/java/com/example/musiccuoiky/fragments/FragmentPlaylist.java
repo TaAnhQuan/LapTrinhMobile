@@ -26,20 +26,21 @@ import com.example.musiccuoiky.models.Playlist;
 
 import java.util.List;
 
-public class FragmentPlaylist extends Fragment implements View.OnClickListener{
+public class FragmentPlaylist extends Fragment implements View.OnClickListener {
     RecyclerView rcvPlaylist;
     public static AdapterPlaylist adapterPlaylist;
     public static List<Playlist> list;
     Button btnTaoPlaylist;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_playlist,container,false);
+        View view = inflater.inflate(R.layout.fragment_playlist, container, false);
         rcvPlaylist = view.findViewById(R.id.rcvPlaylist);
         list = MainActivity.playList;
-        adapterPlaylist = new AdapterPlaylist(getContext(),list);
+        adapterPlaylist = new AdapterPlaylist(getContext(), list);
         rcvPlaylist.setAdapter(adapterPlaylist);
-        rcvPlaylist.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+        rcvPlaylist.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         btnTaoPlaylist = view.findViewById(R.id.btnCreatePlaylist);
         btnTaoPlaylist.setOnClickListener(this);
         return view;
@@ -47,14 +48,14 @@ public class FragmentPlaylist extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        if (view== btnTaoPlaylist) {
+        if (view == btnTaoPlaylist) {
             makeDialogCreatePlaylist();
         }
     }
-    public void makeDialogCreatePlaylist(){
+
+    public void makeDialogCreatePlaylist() {
         CreatePlaylistDialog playlistDialog = new CreatePlaylistDialog();
         playlistDialog.show(getFragmentManager(), "create playlist");
-
 
 
     }

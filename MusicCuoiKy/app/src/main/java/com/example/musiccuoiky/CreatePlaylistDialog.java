@@ -11,7 +11,7 @@ import com.example.musiccuoiky.MusicPlayer;
 
 import static com.example.musiccuoiky.MusicPlayer.updatePlaylist;
 
-public class  CreatePlaylistDialog extends DialogFragment {
+public class CreatePlaylistDialog extends DialogFragment {
     public static CreatePlaylistDialog instance;
 
     public CreatePlaylistDialog() {

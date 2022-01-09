@@ -15,7 +15,7 @@ import java.util.List;
 
 
 public class MusicPlayer {
-    public static void updatePlaylist(){
+    public static void updatePlaylist() {
         List<Playlist> list;
         MainActivity.updateList();
         list = MainActivity.playList;
@@ -23,6 +23,7 @@ public class MusicPlayer {
         FragmentPlaylist.list.addAll(list);
         FragmentPlaylist.adapterPlaylist.notifyDataSetChanged();
     }
+
     public static final long createPlaylist(final Context context, final String name) {
         if (name != null && name.length() > 0) {
             final ContentResolver resolver = context.getContentResolver();
@@ -47,6 +48,7 @@ public class MusicPlayer {
         }
         return -1;
     }
+
     public static final long deletePlaylist(final Context context, final String name) {
         if (name != null && name.length() > 0) {
             final ContentResolver resolver = context.getContentResolver();
@@ -54,7 +56,7 @@ public class MusicPlayer {
                     MediaStore.Audio.PlaylistsColumns.NAME
             };
             final String selection = MediaStore.Audio.PlaylistsColumns.NAME + " = '" + name + "'";
-            resolver.delete(MediaStore.Audio.Playlists.EXTERNAL_CONTENT_URI,selection,null);
+            resolver.delete(MediaStore.Audio.Playlists.EXTERNAL_CONTENT_URI, selection, null);
         }
         return -1;
     }

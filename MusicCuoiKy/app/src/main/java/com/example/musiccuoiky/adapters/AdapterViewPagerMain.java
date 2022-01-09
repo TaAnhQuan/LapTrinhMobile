@@ -17,7 +17,7 @@ public class AdapterViewPagerMain extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Fragment fragment = null;
-        switch (position){
+        switch (position) {
             case 3:
                 fragment = new FragmentSong();
                 break;
@@ -42,7 +42,7 @@ public class AdapterViewPagerMain extends FragmentStatePagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         String title = "";
-        switch (position){
+        switch (position) {
             case 0:
                 title = "Playlist";
                 break;

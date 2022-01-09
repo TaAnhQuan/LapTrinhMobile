@@ -2,8 +2,10 @@ package com.example.musiccuoiky.adapters;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +36,7 @@ public class AdapterViewPagerPlaySong extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.item_playsong,container,false);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.item_playsong, container, false);
         ImageView image_Song;
         TextView tv_Song, tv_Artist;
         image_Song = itemView.findViewById(R.id.imvSong);

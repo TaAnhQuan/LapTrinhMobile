@@ -12,9 +12,11 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
+
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+
 import android.widget.RemoteViews;
 import android.widget.Toast;
 
@@ -38,6 +40,7 @@ public class MusicService extends Service {
     public static Notification notification;
     public static RemoteViews contentView;
     public static final String CHANNEL_ID = "1234";
+
     public void onCreate() {
         super.onCreate();
         instance = this;
@@ -49,32 +52,32 @@ public class MusicService extends Service {
         try {
             if (mediaPlayer == null)
                 mediaPlayer = MediaPlayer.create(context, Uri.parse(MusicService.list.get(pos).getPath()));
-        } catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
 
         }
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Toast.makeText(this,"start service",Toast.LENGTH_SHORT).show();
-        try{
-            if (intent.getAction().compareTo(Define.actPrevious)==0){
+        Toast.makeText(this, "start service", Toast.LENGTH_SHORT).show();
+        try {
+            if (intent.getAction().compareTo(Define.actPrevious) == 0) {
 //                Toast.makeText(this,"previous",Toast.LENGTH_SHORT).show();
                 Control.previous(this);
-            } else if (intent.getAction().compareTo(Define.actPlay)==0){
+            } else if (intent.getAction().compareTo(Define.actPlay) == 0) {
 //                Toast.makeText(this,"play",Toast.LENGTH_SHORT).show();
                 Control.play(this);
-            } else if (intent.getAction().compareTo(Define.actNext)==0){
+            } else if (intent.getAction().compareTo(Define.actNext) == 0) {
 //                Toast.makeText(this,"next",Toast.LENGTH_SHORT).show();
                 Control.next(this);
-            } else if (intent.getAction().compareTo(Define.actStart)==0){
+            } else if (intent.getAction().compareTo(Define.actStart) == 0) {
 //                Toast.makeText(this,"start",Toast.LENGTH_SHORT).show();
                 Control.start(this);
-            } else if (intent.getAction().compareTo(Define.actExit)==0){
+            } else if (intent.getAction().compareTo(Define.actExit) == 0) {
 //                Toast.makeText(this,"exit",Toast.LENGTH_SHORT).show();
                 Control.exit(this);
             }
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
         }
         return START_NOT_STICKY;
     }
@@ -138,6 +141,7 @@ public class MusicService extends Service {
         else contentView.setImageViewResource(R.id.imvSong, R.drawable.ic_music_default);
         mNotificationManager.notify(1, notification);
     }
+
     public static MediaPlayer getMediaPlayer() {
         return mediaPlayer;
     }

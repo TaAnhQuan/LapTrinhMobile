@@ -12,20 +12,20 @@ import com.example.musiccuoiky.defines.Define;
 public class SwitchButtonListener extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (intent.getAction().compareTo(Define.actPrevious)==0){
-            Toast.makeText(context,"previous",Toast.LENGTH_SHORT).show();
+        if (intent.getAction().compareTo(Define.actPrevious) == 0) {
+//            Toast.makeText(context, "previous", Toast.LENGTH_SHORT).show();
             Control.previous(context);
-        } else if (intent.getAction().compareTo(Define.actPlay)==0){
-            Toast.makeText(context,"play",Toast.LENGTH_SHORT).show();
+        } else if (intent.getAction().compareTo(Define.actPlay) == 0) {
+//            Toast.makeText(context, "play", Toast.LENGTH_SHORT).show();
             Control.play(context);
-        } else if (intent.getAction().compareTo(Define.actNext)==0){
-            Toast.makeText(context,"next",Toast.LENGTH_SHORT).show();
+        } else if (intent.getAction().compareTo(Define.actNext) == 0) {
+//            Toast.makeText(context, "next", Toast.LENGTH_SHORT).show();
             Control.next(context);
-        } else if (intent.getAction().compareTo(Define.actStart)==0){
-            Toast.makeText(context,"start",Toast.LENGTH_SHORT).show();
+        } else if (intent.getAction().compareTo(Define.actStart) == 0) {
+//            Toast.makeText(context, "start", Toast.LENGTH_SHORT).show();
             Control.start(context);
-        } else if (intent.getAction().compareTo(Define.actExit)==0){
-            Toast.makeText(context,"exit",Toast.LENGTH_SHORT).show();
+        } else if (intent.getAction().compareTo(Define.actExit) == 0) {
+//            Toast.makeText(context, "exit", Toast.LENGTH_SHORT).show();
             Control.exit(context);
         }
     }

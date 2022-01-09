@@ -1,4 +1,5 @@
 package com.example.musiccuoiky.fragments;
+
 import static com.example.musiccuoiky.MusicPlayer.updatePlaylist;
 
 import android.app.Dialog;
@@ -43,7 +44,7 @@ public class FragmentDetailPlaylist extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_detail_playlist,container,false);
+        View view = inflater.inflate(R.layout.fragment_detail_playlist, container, false);
         instance = this;
         txtPlaylist = view.findViewById(R.id.txtPlaylist);
         txtCount = view.findViewById(R.id.txtCount);
@@ -58,16 +59,15 @@ public class FragmentDetailPlaylist extends Fragment {
         });
 
 
-
         Bundle bundle = getArguments();
         txtPlaylist.setText(bundle.getString("txtPlaylist"));
-        txtCount.setText(bundle.getInt("tv_Count")+" bài hát");
+        txtCount.setText(bundle.getInt("tv_Count") + " bài hát");
         list = getListSongForPlaylist(bundle.getLong("playlistID"));
 
-        adapterSongForPlaylist = new AdapterSongForPlaylist(getContext(),list);
+        adapterSongForPlaylist = new AdapterSongForPlaylist(getContext(), list);
         rcvSongForPlaylist.setAdapter(adapterSongForPlaylist);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         layoutManager.setAutoMeasureEnabled(true);
         rcvSongForPlaylist.setLayoutManager(layoutManager);
         rcvSongForPlaylist.setNestedScrollingEnabled(false);
@@ -75,11 +75,11 @@ public class FragmentDetailPlaylist extends Fragment {
         return view;
     }
 
-    public static List<Song> getListSongForPlaylist(long playlistID){
+    public static List<Song> getListSongForPlaylist(long playlistID) {
         List<Song> list = new ArrayList<>();
-        Cursor c = makePlaylistSongCursor(instance.getContext(),playlistID);
+        Cursor c = makePlaylistSongCursor(instance.getContext(), playlistID);
         for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-            String id, name, title, album, albumId, artist, artistId, path, albumArt="";
+            String id, name, title, album, albumId, artist, artistId, path, albumArt = "";
             int duration;
             id = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.Playlists.Members.AUDIO_ID));
             name = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DISPLAY_NAME));
@@ -91,14 +91,14 @@ public class FragmentDetailPlaylist extends Fragment {
             duration = c.getInt(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DURATION));
             path = c.getString(c.getColumnIndexOrThrow(MediaStore.Audio.AudioColumns.DATA));
             Cursor cursor = instance.getContext().getContentResolver().query(MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI,
-                    new String[] {MediaStore.Audio.Albums._ID, MediaStore.Audio.Albums.ALBUM_ART},
-                    MediaStore.Audio.Albums._ID+ "=?",
-                    new String[] {String.valueOf(albumId)},
+                    new String[]{MediaStore.Audio.Albums._ID, MediaStore.Audio.Albums.ALBUM_ART},
+                    MediaStore.Audio.Albums._ID + "=?",
+                    new String[]{String.valueOf(albumId)},
                     null);
             if (cursor.moveToFirst()) {
                 albumArt = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ART));
             }
-            Song song = new Song(id, name, title, album, albumId, artist,artistId, path, albumArt, duration);
+            Song song = new Song(id, name, title, album, albumId, artist, artistId, path, albumArt, duration);
             list.add(song);
 
         }
@@ -126,18 +126,18 @@ public class FragmentDetailPlaylist extends Fragment {
                 MediaStore.Audio.Playlists.Members.DEFAULT_SORT_ORDER);
     }
 
-    private Dialog addSong(){
+    private Dialog addSong() {
         return new MaterialDialog.Builder(this.getContext())
-                                        .title("Chọn bản nhạc")
-                                        .items(FragmentSong.list)
-                                        .itemsCallback(new MaterialDialog.ListCallback() {
-                                            @Override
-                                            public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
-                                                //list = getListSongForPlaylist(which);
-                                                Toast.makeText(getContext(),"song selected", Toast.LENGTH_SHORT).show();
-                                            }
-                                        })
-                                        .show();
+                .title("Chọn bản nhạc")
+                .items(FragmentSong.list)
+                .itemsCallback(new MaterialDialog.ListCallback() {
+                    @Override
+                    public void onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
+                        //list = getListSongForPlaylist(which);
+                        Toast.makeText(getContext(), "song selected", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .show();
 
     }
 }
