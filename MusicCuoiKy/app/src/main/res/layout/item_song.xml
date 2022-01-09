@@ -30,7 +30,7 @@
         android:layout_height="@dimen/_60sdp"
         android:orientation="vertical"
         android:layout_toEndOf="@+id/imvSong"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:layout_marginStart="@dimen/_10sdp">
 
         <TextView
@@ -40,7 +40,7 @@
             android:text="@string/song"
             android:textSize="@dimen/_14ssp"
             android:singleLine="true"
-            android:textColor="#000" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txtArtist"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:text="@string/artist"
             android:singleLine="true"
-            android:textColor="#000" />
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <ImageButton

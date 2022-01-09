@@ -48,6 +48,7 @@
                 android:layout_alignEnd="@+id/imvPlaylist"
                 android:layout_alignBottom="@+id/imvPlaylist"
                 android:layout_marginEnd="@dimen/_16sdp"
+                android:backgroundTint="@color/colorButton"
                 android:text="Thêm" />
 
             <androidx.recyclerview.widget.RecyclerView

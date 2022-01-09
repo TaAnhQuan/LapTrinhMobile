@@ -17,7 +17,7 @@
         android:text="@string/song"
         android:textSize="@dimen/_14ssp"
         android:singleLine="true"
-        android:textColor="#000"
+        android:textColor="@color/black"
         android:layout_below="@+id/imvAlbum"
         android:layout_centerHorizontal="true" />
 
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="@string/artist"
             android:singleLine="true"
-            android:textColor="#000" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txtCount"
@@ -41,6 +41,6 @@
             android:layout_height="wrap_content"
             android:text=""
             android:singleLine="true"
-            android:textColor="#000" />
+            android:textColor="@color/black" />
     </LinearLayout>
 </RelativeLayout>

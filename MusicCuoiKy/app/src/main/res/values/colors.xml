@@ -11,4 +11,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorProgressBar">#AFF123</color>
+    <color name="colorPointer">#FF4444</color>
+    <color name="colorBGPlaySongBar">#9f9393</color>
+    <color name="colorButton">#90CAF9</color>
+
+
 </resources>

@@ -24,10 +24,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_50sdp"
-            app:progressBackgroundColor="#000"
-            app:progressColor="#AFF123"
+            app:progressBackgroundColor="@color/black"
+            app:progressColor="@color/colorProgressBar"
             app:thumbAlpha="1.0"
-            app:thumbColor="#FF4444" />
+            app:thumbColor="@color/colorPointer" />
 
         <TextView
             android:id="@+id/txtBegin"
@@ -54,7 +54,7 @@
         android:layout_height="@dimen/_50sdp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="@dimen/_20sdp"
-        android:background="#9f9393">
+        android:background="@color/colorBGPlaySongBar">
 
         <LinearLayout
             android:layout_width="match_parent"
