@@ -2,6 +2,7 @@ package com.example.musiccuoiky.fragments;
 
 import static com.example.musiccuoiky.MusicPlayer.updatePlaylist;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.database.Cursor;
@@ -75,6 +76,7 @@ public class FragmentDetailPlaylist extends Fragment {
         return view;
     }
 
+    @SuppressLint("Range")
     public static List<Song> getListSongForPlaylist(long playlistID) {
         List<Song> list = new ArrayList<>();
         Cursor c = makePlaylistSongCursor(instance.getContext(), playlistID);
