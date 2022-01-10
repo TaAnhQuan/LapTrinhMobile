@@ -100,7 +100,7 @@ public class FragmentDetailPlaylist extends Fragment {
             if (cursor.moveToFirst()) {
                 albumArt = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ART));
             }
-            Song song = new Song(id, name, title, album, albumId, artist, artistId, path, albumArt, duration);
+            Song song = new Song(id, name, title, album, albumId, artist, artistId, path, albumArt, duration, false);
             list.add(song);
 
         }

@@ -176,8 +176,11 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = new Intent(PlaySongActivity.this, MusicService.class);
         switch (view.getId()) {
             case R.id.btnPrevious:
-                favorite = false;
-                btnFavorite.setImageResource(R.drawable.ic_unfavorite_white);
+                if (getPos()-1 >= 0 && list.get(getPos()-1).isFavorite()) {
+                    btnFavorite.setImageResource(R.drawable.ic_favorite);
+                } else {
+                    btnFavorite.setImageResource(R.drawable.ic_unfavorite_white);
+                }
                 intent.setAction(Define.actPrevious);
                 startService(intent);
                 break;
@@ -186,20 +189,24 @@ public class PlaySongActivity extends AppCompatActivity implements View.OnClickL
                 startService(intent);
                 break;
             case R.id.btnNext:
-                favorite = false;
-                btnFavorite.setImageResource(R.drawable.ic_unfavorite_white);
+                if (getPos()+1 < list.size() && list.get(getPos()+1).isFavorite()) {
+                    btnFavorite.setImageResource(R.drawable.ic_favorite);
+                } else {
+                    btnFavorite.setImageResource(R.drawable.ic_unfavorite_white);
+                }
+
                 intent.setAction(Define.actNext);
                 startService(intent);
                 break;
             case R.id.btnFavorite:
-                if (!favorite) {
+                Log.d("NDQ", String.valueOf(list.get(getPos()).isFavorite()));
+                if (!list.get(getPos()).isFavorite()){
                     btnFavorite.setImageResource(R.drawable.ic_favorite);
-                    favorite = true;
+                    list.get(getPos()).setFavorite(true);
                 } else {
                     btnFavorite.setImageResource(R.drawable.ic_unfavorite_white);
-                    favorite = false;
+                    list.get(getPos()).setFavorite(false);
                 }
-                break;
         }
     }
 

@@ -52,7 +52,7 @@ public class SongLoader {
                 if (cursor.moveToFirst()) {
                     album_art = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Albums.ALBUM_ART));
                 }
-                Song song = new Song(id, name, title, album, album_id, artist, artist_id, path, album_art, duration);
+                Song song = new Song(id, name, title, album, album_id, artist, artist_id, path, album_art, duration, false);
                 mListSongs.add(song);
 
             }
