@@ -60,19 +60,19 @@ public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder> {
         holder.txtSong.setText(list.get(position).getName());
         holder.txtArtist.setText(list.get(position).getArtist());
 
-        boolean[] isFavorite = {false};
-        holder.btnFavorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!isFavorite[0]){
-                    holder.btnFavorite.setImageResource(R.drawable.ic_favorite);
-                    isFavorite[0] = true;
-                }else{
-                    holder.btnFavorite.setImageResource(R.drawable.ic_unfavorite_black);
-                    isFavorite[0] = false;
-                }
-            }
-        });
+//        boolean[] isFavorite = {false};
+//        holder.btnFavorite.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (!isFavorite[0]){
+//                    holder.btnFavorite.setImageResource(R.drawable.ic_favorite);
+//                    isFavorite[0] = true;
+//                }else{
+//                    holder.btnFavorite.setImageResource(R.drawable.ic_unfavorite_black);
+//                    isFavorite[0] = false;
+//                }
+//            }
+//        });
 
         if (list.get(position).getId().compareTo(MusicService.list.get(MusicService.pos).getId()) == 0) {
             holder.txtSong.setTextColor(Color.MAGENTA);
